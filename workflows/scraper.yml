@@ -1,4 +1,4 @@
-name: SIR Toscana – Aggiornamento dati pluviometrici
+name: SIR Toscana - Aggiornamento dati pluviometrici
 
 on:
   schedule:
@@ -20,22 +20,22 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Installa dipendenze Python
+      - name: Installa dipendenze
         run: pip install playwright beautifulsoup4
 
-      - name: Installa Chromium per Playwright
+      - name: Installa Chromium
         run: |
           playwright install chromium
           playwright install-deps chromium
 
-      - name: Esegui scraper SIR
+      - name: Esegui scraper
         run: python scraper/sir_scraper_gha.py
         timeout-minutes: 10
 
-      - name: Commit e push dati aggiornati
+      - name: Commit dati
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "dati SIR aggiornati: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --staged --quiet || git commit -m "dati SIR: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
