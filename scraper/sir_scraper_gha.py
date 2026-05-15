@@ -8,19 +8,178 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.request import Request, urlopen
+from urllib.parse import quote
 
 from playwright.async_api import async_playwright, TimeoutError as PWTimeout
 from bs4 import BeautifulSoup
 
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_SIR   = "https://www.sir.toscana.it"
+WORKER_URL = "https://sir-proxy.riccardo-giusti-gst.workers.dev"
 DATA_DIR   = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
 
-TIPI_DA_SCRAPARE = [
-    "pluvio_men",   # precipitazioni giornaliere (ultime settimane)
-    "pluvio",       # cumulate in corso
-]
+TIPI_DA_SCRAPARE = ["pluvio_men", "pluvio"]
+
+# ── Fetch con headers browser ─────────────────────────────────────────────────
+def fetch_url(url, timeout=20):
+    req = Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+        "Accept": "application/json, text/plain, */*",
+    })
+    with urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8")
+
+# ── Browser helper ────────────────────────────────────────────────────────────
+async def fetch_page(browser, url, timeout=25000):
+    page = await browser.new_page()
+    html = ""
+    try:
+        await page.goto(url, wait_until="networkidle", timeout=timeout)
+        try:
+            await page.wait_for_selector("table", timeout=12000)
+        except PWTimeout:
+            pass
+        await asyncio.sleep(3)
+        html = await page.content()
+    except Exception as e:
+        print(f"  ⚠️  Errore: {e}")
+    finally:
+        await page.close()
+    return html
+
+# ── Parsing tabella ───────────────────────────────────────────────────────────
+def parsa_tabella(html, tipo):
+    import re
+    soup = BeautifulSoup(html, "html.parser")
+    risultati = []
+    riferimento = ""
+    for tag in soup.find_all(["h4","h3","p"]):
+        t = tag.get_text()
+        if "riferit" in t.lower():
+            riferimento = t.strip()[:120]
+            break
+
+    for tabella in soup.find_all("table"):
+        righe = tabella.find_all("tr")
+        if len(righe) < 3:
+            continue
+        header = [h.get_text(strip=True) for h in righe[0].find_all(["th","td"])]
+        if len(header) < 2:
+            continue
+        for riga in righe[1:]:
+            celle = riga.find_all(["td","th"])
+            if not celle:
+                continue
+            valori = [c.get_text(strip=True) for c in celle]
+            if not any(valori):
+                continue
+            row = {header[j] if j < len(header) else f"col_{j}": v
+                   for j, v in enumerate(valori)}
+            for cella in celle:
+                link = cella.find("a", href=True)
+                if link:
+                    href = link["href"]
+                    m = re.search(r'id=(TOS[^&\s"\']+)', href)
+                    if m:
+                        row["codice"] = m.group(1)
+                    if not row.get("nome"):
+                        row["nome"] = link.get_text(strip=True)
+            row["tipo"] = tipo
+            row["riferimento"] = riferimento
+            risultati.append(row)
+    return risultati
+
+# ── Stazioni SIR ──────────────────────────────────────────────────────────────
+def scarica_stazioni():
+    """Prova HTTP diretto poi Worker come fallback."""
+    urls = [
+        "http://www.sir.toscana.it/archivio/dati.php?D=json_stations",
+        f"{WORKER_URL}?url={quote('http://www.sir.toscana.it/archivio/dati.php?D=json_stations')}",
+    ]
+    for url in urls:
+        try:
+            print(f"  Provo: {url[:70]}...")
+            testo = fetch_url(url, timeout=25)
+            geojson = json.loads(testo)
+            stazioni = []
+            for f in geojson.get("features", []):
+                props = f.get("properties", {})
+                geom  = f.get("geometry", {})
+                if geom.get("type") != "Point":
+                    continue
+                consist = props.get("Consistenza", {})
+                anni = []
+                for k, v in consist.items():
+                    if "PLUVIOMETRIA" in k and "9-9" in k:
+                        anni = [a for grp in (v.get("Anni") or []) for a in grp]
+                        break
+                if not anni or ("2026" not in anni and "2025" not in anni):
+                    continue
+                lng, lat = geom["coordinates"]
+                stazioni.append({
+                    "codice":    props.get("Codice", ""),
+                    "nome":      props.get("Nome", ""),
+                    "comune":    props.get("Comune", ""),
+                    "provincia": props.get("Provincia", ""),
+                    "quota":     props.get("Quota mslm", ""),
+                    "lat":       round(float(lat), 6),
+                    "lng":       round(float(lng), 6),
+                })
+            if stazioni:
+                print(f"  ✅ {len(stazioni)} stazioni trovate")
+                return stazioni
+        except Exception as e:
+            print(f"  ⚠️  Fallito: {e}")
+    return []
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+async def main():
+    ts_utc = datetime.now(timezone.utc).isoformat()
+    print(f"═══ SIR Scraper – {ts_utc} ═══\n")
+
+    print("1. Lista stazioni SIR...")
+    stazioni = scarica_stazioni()
+    out = {"aggiornato": ts_utc, "totale": len(stazioni), "stazioni": stazioni}
+    (DATA_DIR / "stazioni.json").write_text(
+        json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"   💾 data/stazioni.json ({len(stazioni)} stazioni)")
+
+    print("\n2. Scraping tabelle SIR...")
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=["--no-sandbox","--disable-dev-shm-usage","--disable-gpu"])
+        staz_map = {s["codice"]: s for s in stazioni}
+        for tipo in TIPI_DA_SCRAPARE:
+            url = f"{BASE_SIR}/monitoraggio/stazioni.php?type={tipo}"
+            print(f"\n   → {tipo}")
+            html = await fetch_page(browser, url)
+            dati = parsa_tabella(html, tipo)
+            print(f"   ✅ {len(dati)} righe")
+            for row in dati:
+                s = staz_map.get(row.get("codice",""), {})
+                if s:
+                    row.update({"lat": s["lat"], "lng": s["lng"],
+                                "quota": s["quota"], "comune": s["comune"],
+                                "provincia": s["provincia"]})
+            out = {"aggiornato": ts_utc, "tipo": tipo,
+                   "totale": len(dati), "dati": dati}
+            (DATA_DIR / f"{tipo}.json").write_text(
+                json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"   💾 data/{tipo}.json")
+        await browser.close()
+
+    stato = {"ultimo_aggiornamento": ts_utc,
+             "stazioni_totali": len(stazioni),
+             "files": [f.name for f in DATA_DIR.glob("*.json")]}
+    (DATA_DIR / "stato.json").write_text(
+        json.dumps(stato, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\n✅ Completato: {datetime.now(timezone.utc).isoformat()}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
 
 # ── Browser helper ────────────────────────────────────────────────────────────
 async def fetch_page(browser, url, wait_selector="table", timeout=25000):
