@@ -1,4 +1,4 @@
-name: SIR Toscana - Aggiornamento dati pluviometrici
+name: SIR Toscana
 
 on:
   schedule:
@@ -10,30 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Installa dipendenze
-        run: pip install playwright beautifulsoup4
-
-      - name: Installa Chromium
-        run: |
-          playwright install chromium
-          playwright install-deps chromium
-
-      - name: Esegui scraper
-        run: python scraper/sir_scraper_gha.py
+      - run: pip install playwright beautifulsoup4
+      - run: playwright install chromium --with-deps
+      - run: python scraper/sir_scraper_gha.py
         timeout-minutes: 10
-
-      - name: Commit dati
-        run: |
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
