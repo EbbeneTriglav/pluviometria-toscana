@@ -86,7 +86,7 @@ def parsa_tabella_pluvio(html, tipo):
         header_idx = 0
         for i, riga in enumerate(righe[:5]):
             celle = riga.find_all(["th", "td"])
-            testi = [c.get_text(strip=True).lower() for c in celle]
+            testi = [c.get_text(strip=True).lower().replace("\xa0", " ") for c in celle]
             if any(t in testi for t in ["codice", "stazione", "pcum"]):
                 header = testi
                 header_idx = i
@@ -110,7 +110,7 @@ def parsa_tabella_pluvio(html, tipo):
             for j, val in enumerate(valori):
                 if j >= len(header):
                     break
-                chiave_raw = header[j].strip().lower()
+                chiave_raw = header[j].strip().lower().replace("\xa0", " ")
                 chiave = HEADER_MAP.get(chiave_raw, chiave_raw)
                 if chiave and chiave != "col_15":  # escludi ultima colonna confusa
                     row[chiave] = val
