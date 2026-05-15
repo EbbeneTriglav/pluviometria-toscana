@@ -8,490 +8,442 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3ef;color:#1c1b19;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-
-header{background:#fff;border-bottom:1px solid #dddbd0;padding:10px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
-header h1{font-size:14px;font-weight:600}
-.fonte-badge{margin-left:auto;font-size:10px;background:#e5f2ec;color:#0F6E56;padding:3px 10px;border-radius:99px;font-weight:600;white-space:nowrap}
-
+header{background:#fff;border-bottom:1px solid #dddbd0;padding:9px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+header h1{font-size:13px;font-weight:600}
+#header-badge{margin-left:auto;font-size:10px;background:#e5f2ec;color:#0F6E56;padding:2px 10px;border-radius:99px;font-weight:600;white-space:nowrap}
 #app{display:flex;flex:1;overflow:hidden}
 #map-wrap{flex:1;position:relative}
 #map{width:100%;height:100%}
-
 #overlay{position:absolute;inset:0;background:rgba(244,243,239,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;gap:10px;font-size:13px;color:#666}
 .spinner{width:22px;height:22px;border:2.5px solid #dddbd0;border-top-color:#1D9E75;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#overlay-msg{max-width:280px;text-align:center;line-height:1.6}
-
-#panel{width:330px;background:#fff;border-left:1px solid #dddbd0;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
-#ph{padding:14px 16px 12px;border-bottom:1px solid #dddbd0;flex-shrink:0;display:none}
-.ph-name{font-size:14px;font-weight:600;line-height:1.3}
-.ph-meta{font-size:11px;color:#888;margin-top:3px}
-.ph-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
-.badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px}
-.badge-sir{background:#e5f2ec;color:#0F6E56}
-.badge-om{background:#e6f1fb;color:#185fa5}
-.badge-warn{background:#faeeda;color:#854F0B}
-
-#pb{flex:1;overflow-y:auto;padding:14px 16px}
+#panel{width:340px;background:#fff;border-left:1px solid #dddbd0;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+#ph{padding:12px 14px 10px;border-bottom:1px solid #dddbd0;flex-shrink:0;display:none}
+.ph-name{font-size:14px;font-weight:600}
+.ph-meta{font-size:11px;color:#888;margin-top:2px}
+.ph-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px}
+.b-sir{background:#e5f2ec;color:#0F6E56}
+.b-om{background:#e6f1fb;color:#185fa5}
+#tabs{display:flex;border-bottom:1px solid #dddbd0;flex-shrink:0;background:#fafaf8;display:none}
+.tab{flex:1;font-size:11px;font-weight:500;padding:7px 2px;border:none;background:transparent;cursor:pointer;color:#888;border-bottom:2px solid transparent;transition:all .15s}
+.tab.active{color:#1D9E75;border-bottom-color:#1D9E75;background:#fff}
+.tab:hover:not(.active){color:#555}
+#custom-range{display:none;padding:7px 12px;border-bottom:1px solid #dddbd0;background:#fafaf8;gap:6px;align-items:center;flex-shrink:0}
+#custom-range.show{display:flex}
+#custom-range label{font-size:10px;color:#888;white-space:nowrap}
+#custom-range input{font-size:11px;flex:1;padding:3px 5px;border:1px solid #dddbd0;border-radius:6px;background:#fff}
+#btn-lr{font-size:11px;padding:4px 10px;background:#1D9E75;color:#fff;border:none;border-radius:6px;cursor:pointer;white-space:nowrap}
+#pb{flex:1;overflow-y:auto;padding:12px 14px}
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:80%;gap:10px;color:#bbb;font-size:12px;text-align:center;padding:20px;line-height:1.6}
-.panel-loader{display:flex;align-items:center;gap:10px;padding:28px 0;color:#888;font-size:12px}
-
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0 14px}
-.stat-card{background:#f4f3ef;border-radius:8px;padding:10px 12px}
-.sl{font-size:10px;color:#888;margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
-.sv{font-size:19px;font-weight:600;line-height:1}
+.panel-loader{display:flex;align-items:center;gap:10px;padding:24px 0;color:#888;font-size:12px}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0 12px}
+.sc{background:#f4f3ef;border-radius:8px;padding:9px 11px}
+.sl{font-size:9px;color:#888;margin-bottom:3px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.sv{font-size:18px;font-weight:600;line-height:1}
 .su{font-size:10px;font-weight:400;color:#888}
-
-.sec{font-size:9px;font-weight:700;color:#bbb;margin:12px 0 6px;letter-spacing:.08em;text-transform:uppercase}
-.chart-wrap{position:relative;height:185px;margin:4px 0 14px}
-
+.sec{font-size:9px;font-weight:700;color:#bbb;margin:10px 0 5px;letter-spacing:.08em;text-transform:uppercase}
+.cw{position:relative;height:175px;margin:4px 0 12px}
 table.dt{width:100%;font-size:11px;border-collapse:collapse}
-table.dt th{text-align:left;color:#888;font-weight:600;padding:4px 6px;border-bottom:1px solid #eee;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
-table.dt td{padding:5px 6px;border-bottom:1px solid #f0efe9;color:#1c1b19}
-
-.btn-row{display:flex;gap:8px;margin-top:12px}
-.btn{display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:500;padding:8px 12px;border:1px solid #dddbd0;border-radius:8px;cursor:pointer;background:#fff;color:#1c1b19;flex:1;transition:background .12s}
+table.dt th{text-align:left;color:#888;font-weight:600;padding:3px 5px;border-bottom:1px solid #eee;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
+table.dt td{padding:4px 5px;border-bottom:1px solid #f0efe9}
+.br{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.btn{display:flex;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:500;padding:7px 10px;border:1px solid #dddbd0;border-radius:7px;cursor:pointer;background:#fff;color:#1c1b19;transition:background .12s}
 .btn:hover{background:#f4f3ef}
-.btn-sir{border-color:#1D9E75;color:#0F6E56}
-.btn-sir:hover{background:#e5f2ec}
-
-.source-note{font-size:10px;color:#bbb;margin-top:10px;text-align:center;line-height:1.7}
-.source-note a{color:#185fa5;text-decoration:none}
-.source-note a:hover{text-decoration:underline}
-
+.bxl{background:#1D9E75;color:#fff;border-color:#1D9E75;flex:1}
+.bxl:hover{background:#0F6E56}
+.bgr{border-color:#1D9E75;color:#0F6E56}
+.bgr:hover{background:#e5f2ec}
+.sn{font-size:10px;color:#bbb;margin-top:8px;text-align:center;line-height:1.7}
+.sn a{color:#185fa5;text-decoration:none}
 #statusbar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.9);border-top:1px solid #dddbd0;padding:4px 12px;font-size:10px;color:#888;display:flex;align-items:center;gap:8px;z-index:500}
 #stat-count{color:#1D9E75;font-weight:600}
-#stat-fonte{margin-left:auto;color:#aaa}
-
+#stat-fonte{margin-left:auto;color:#aaa;font-size:9px}
+.ml{position:absolute;bottom:30px;left:10px;background:rgba(255,255,255,.92);border:1px solid #dddbd0;border-radius:8px;padding:7px 11px;font-size:10px;z-index:500;color:#555;line-height:1.8}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;border:1.5px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3);margin-right:4px;vertical-align:middle}
 .leaflet-tooltip{font-family:system-ui,sans-serif;font-size:11px;padding:5px 9px;border:1px solid #dddbd0!important;box-shadow:0 2px 8px rgba(0,0,0,.12)!important;border-radius:6px!important}
-
-/* Legenda mappa */
-.map-legend{position:absolute;bottom:30px;left:10px;background:rgba(255,255,255,.92);border:1px solid #dddbd0;border-radius:8px;padding:8px 12px;font-size:10px;z-index:500;color:#555}
-.map-legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block;border:1.5px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3);margin-right:5px}
 </style>
 </head>
 <body>
-
 <header>
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/>
-    <line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/>
-    <line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/>
-    <line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/>
-  </svg>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
   <h1>Pluviometria – Rete SIR Regione Toscana</h1>
-  <span class="fonte-badge" id="header-fonte">Stazioni: SIR · Dati: SIR + Open-Meteo</span>
+  <span id="header-badge">Stazioni: SIR · Dati: SIR + Open-Meteo</span>
 </header>
-
 <div id="app">
   <div id="map-wrap">
-    <div id="overlay">
-      <div class="spinner"></div>
-      <span id="overlay-msg">Connessione a SIR Toscana via proxy…</span>
-    </div>
+    <div id="overlay"><div class="spinner"></div><span id="overlay-msg">Caricamento stazioni SIR…</span></div>
     <div id="map"></div>
-    <div id="statusbar">
-      <span id="stat-count">–</span> stazioni caricate &nbsp;·&nbsp; Clicca una stazione per i dati
-      <span id="stat-fonte"></span>
-    </div>
-    <div class="map-legend">
+    <div id="statusbar"><span id="stat-count">–</span> stazioni caricate · Clicca una stazione per i dati<span id="stat-fonte"></span></div>
+    <div class="ml">
       <div><span class="dot" style="background:#1D9E75"></span>Stazione SIR attiva</div>
-      <div style="margin-top:3px"><span class="dot" style="background:#3266ad"></span>Stazione supplemento</div>
-      <div style="margin-top:3px"><span class="dot" style="background:#D85A30"></span>Selezionata</div>
+      <div><span class="dot" style="background:#3266ad"></span>Stazione supplemento</div>
+      <div><span class="dot" style="background:#D85A30"></span>Selezionata</div>
     </div>
   </div>
-
   <div id="panel">
     <div id="ph"></div>
+    <div id="tabs">
+      <button class="tab active" onclick="setTab(7,this)">7 gg</button>
+      <button class="tab" onclick="setTab(30,this)">30 gg</button>
+      <button class="tab" onclick="setTab(90,this)">90 gg</button>
+      <button class="tab" onclick="setTab(365,this)">1 anno</button>
+      <button class="tab" onclick="setTab(0,this)">Personalizzato</button>
+    </div>
+    <div id="custom-range">
+      <label>Da</label><input type="date" id="date-from"/>
+      <label>A</label><input type="date" id="date-to"/>
+      <button id="btn-lr" onclick="loadRange()">OK</button>
+    </div>
     <div id="pb">
       <div class="empty-state">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-        </svg>
-        <span>Clicca una stazione sulla mappa per visualizzare i dati pluviometrici degli ultimi 7 giorni</span>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Seleziona una stazione sulla mappa per visualizzare i dati pluviometrici</span>
       </div>
     </div>
   </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-/* ════════════════════════════════════════════════════════════
-   ⚙️  CONFIGURAZIONE
-   ════════════════════════════════════════════════════════════ */
-const WORKER_URL   = "https://sir-proxy.riccardo-giusti-gst.workers.dev";
-const SIR_STATIONS = "http://www.sir.toscana.it/archivio/dati.php?D=json_stations";
-const OPEN_METEO   = "https://api.open-meteo.com/v1/forecast";
+const WORKER_URL  = "https://sir-proxy.riccardo-giusti-gst.workers.dev";
+const SIR_STATIONS= "http://www.sir.toscana.it/archivio/dati.php?D=json_stations";
+const OPEN_METEO  = "https://archive-api.open-meteo.com/v1/archive";
+const DATA_BASE   = "https://raw.githubusercontent.com/ebbenetriglav/pluviometria-toscana/main/data";
 
-// URL base dei dati scraped da GitHub Actions
-// I file JSON vengono aggiornati automaticamente ogni ora
-const GITHUB_REPO  = "ebbenetriglav/pluviometria-toscana";
-const DATA_BASE    = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/data`;
-
-/* Funzione proxy: usa il Worker Cloudflare per le chiamate SIR */
-function proxySIR(url) {
-  return `${WORKER_URL}?url=${encodeURIComponent(url)}`;
+function proxySIR(u){return `${WORKER_URL}?url=${encodeURIComponent(u)}`;}
+async function fetchGH(f){
+  try{const r=await fetch(`${DATA_BASE}/${f}?t=${Date.now()}`);return r.ok?r.json():null;}
+  catch{return null;}
 }
 
-/* Carica JSON da GitHub (dati scraped aggiornati ogni ora) */
-async function fetchGitHub(filename) {
-  const url = `${DATA_BASE}/${filename}?t=${Date.now()}`;
-  try {
-    const r = await fetch(url);
-    if (!r.ok) return null;
-    return await r.json();
-  } catch { return null; }
-}
-
-/* ════════════════════════════════════════════════════════════
-   MAPPA
-   ════════════════════════════════════════════════════════════ */
-const map = L.map("map", {center:[43.6,11.1], zoom:8});
+const map=L.map("map",{center:[43.6,11.1],zoom:8});
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
   attribution:"© <a href='https://openstreetmap.org/copyright'>OpenStreetMap</a>"
 }).addTo(map);
+const mkIcon=st=>L.divIcon({
+  html:`<div style="width:10px;height:10px;border-radius:50%;background:${st==="sel"?"#D85A30":st==="sup"?"#3266ad":"#1D9E75"};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.5)"></div>`,
+  className:"",iconSize:[10,10],iconAnchor:[5,5]
+});
 
-const mkIcon = (state) => {
-  const colors = {active:"#1D9E75", selected:"#D85A30", fallback:"#3266ad"};
-  return L.divIcon({
-    html:`<div style="width:10px;height:10px;border-radius:50%;background:${colors[state]||colors.active};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.5)"></div>`,
-    className:"", iconSize:[10,10], iconAnchor:[5,5]
-  });
-};
+let activeM=null,chart=null,currentStation=null,currentDati=null,currentGiorni=7;
 
-let activeMarker=null, chart=null, currentData=null;
-
-/* ════════════════════════════════════════════════════════════
-   CARICAMENTO STAZIONI
-   ════════════════════════════════════════════════════════════ */
-async function loadStations() {
-  let stazioni = [];
-
-  // 1. Prova stazioni.json da GitHub Actions
+async function loadStations(){
+  let st=[];
   setMsg("Caricamento stazioni SIR…");
-  const cached = await fetchGitHub("stazioni.json");
-  if (cached?.stazioni?.length > 0) {
-    stazioni = cached.stazioni;
-    const age = cached.aggiornato
-      ? new Date(cached.aggiornato).toLocaleString("it-IT") : "–";
-    document.getElementById("stat-fonte").textContent = `Aggiornato: ${age}`;
+  const c=await fetchGH("stazioni.json");
+  if(c?.stazioni?.length>0){
+    st=c.stazioni;
+    document.getElementById("stat-fonte").textContent=`Aggiornato: ${new Date(c.aggiornato).toLocaleString("it-IT")}`;
   }
-
-  // 2. Se stazioni vuote, usa Worker SIR GeoJSON
-  if (stazioni.length === 0) {
-    setMsg("Caricamento stazioni via Worker…");
-    try {
-      const r = await fetch(proxySIR(SIR_STATIONS));
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      const geojson = await r.json();
-      stazioni = parseGeoJSON(geojson);
-    } catch(e) {
-      setMsg(`❌ Impossibile caricare stazioni: ${e.message}`);
-      return;
-    }
+  if(!st.length){
+    setMsg("Caricamento via Worker…");
+    try{
+      const r=await fetch(proxySIR(SIR_STATIONS));
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      st=parseGJ(await r.json());
+    }catch(e){setMsg(`❌ ${e.message}`);return;}
   }
-
-  if (stazioni.length === 0) {
-    setMsg("❌ Nessuna stazione trovata. Riprova tra qualche minuto.");
-    return;
-  }
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("stat-count").textContent = stazioni.length;
-
-  stazioni.forEach(s => {
-    const m = L.marker([s.lat, s.lng], {icon: mkIcon("active")}).addTo(map);
-    m._s = s;
-    m.bindTooltip(
-      `<b>${s.nome}</b><br><span style="color:#888;font-size:10px">${s.comune} (${s.provincia}) · ${parseFloat(s.quota||0).toFixed(0)} m · ${s.codice}</span>`,
-      {className:"leaflet-tooltip", direction:"top", offset:[0,-6]}
-    );
-    m.on("click", () => onStation(s, m));
+  if(!st.length){setMsg("❌ Nessuna stazione trovata.");return;}
+  document.getElementById("overlay").style.display="none";
+  document.getElementById("stat-count").textContent=st.length;
+  st.forEach(s=>{
+    const m=L.marker([s.lat,s.lng],{icon:mkIcon("sir")}).addTo(map);
+    m._s=s;
+    m.bindTooltip(`<b>${s.nome}</b><br><span style="font-size:10px;color:#888">${s.comune} (${s.provincia}) · ${parseFloat(s.quota||0).toFixed(0)}m · ${s.codice}</span>`,
+      {className:"leaflet-tooltip",direction:"top",offset:[0,-6]});
+    m.on("click",()=>onStation(s,m));
   });
-
-  try {
-    const group = L.featureGroup(map._layers ? Object.values(map._layers).filter(l => l instanceof L.Marker) : []);
-    if (group.getLayers().length > 0) map.fitBounds(group.getBounds().pad(.04));
-  } catch(e) {}
+  try{
+    const g=L.featureGroup(Object.values(map._layers).filter(l=>l instanceof L.Marker));
+    if(g.getLayers().length) map.fitBounds(g.getBounds().pad(.04));
+  }catch(e){}
 }
 
-function parseGeoJSON(gj) {
-  return (gj.features||[]).filter(f => {
-    if (f.geometry?.type !== "Point") return false;
-    const c = f.properties?.Consistenza||{};
-    return Object.keys(c).some(k => {
-      if (!k.includes("PLUVIOMETRIA") || !k.includes("9-9")) return false;
-      const anni = (c[k].Anni||[]).flat();
-      return anni.includes("2026") || anni.includes("2025");
+function parseGJ(gj){
+  return(gj.features||[]).filter(f=>{
+    if(f.geometry?.type!=="Point") return false;
+    const c=f.properties?.Consistenza||{};
+    return Object.keys(c).some(k=>{
+      if(!k.includes("PLUVIOMETRIA")||!k.includes("9-9")) return false;
+      return (c[k].Anni||[]).flat().some(a=>a==="2026"||a==="2025");
     });
-  }).map(f => {
-    const p = f.properties;
-    const [lng, lat] = f.geometry.coordinates;
-    // Estrai URL dati dal campo SorgenteDati
-    let url_dati = "";
-    const c = p.Consistenza||{};
-    for (const k of Object.keys(c)) {
-      if (k.includes("PLUVIOMETRIA") && k.includes("9-9")) {
-        url_dati = c[k].SorgenteDati||"";
-        break;
-      }
-    }
-    return {
-      codice: p.Codice, nome: p.Nome, comune: p.Comune,
-      provincia: p.Provincia, quota: p["Quota mslm"]||"",
-      lat: +lat.toFixed(6), lng: +lng.toFixed(6),
-      url_dati
-    };
+  }).map(f=>{
+    const p=f.properties;const[lng,lat]=f.geometry.coordinates;
+    return{codice:p.Codice,nome:p.Nome,comune:p.Comune,provincia:p.Provincia,
+           quota:p["Quota mslm"]||"",lat:+lat.toFixed(6),lng:+lng.toFixed(6)};
   });
 }
 
-/* ════════════════════════════════════════════════════════════
-   DATI STAZIONE
-   ════════════════════════════════════════════════════════════ */
-function dateRange(days=7) {
-  const oggi = new Date();
-  const fine  = oggi.toISOString().split("T")[0];
-  const inizio = new Date(oggi - days*864e5).toISOString().split("T")[0];
-  return {inizio, fine};
+function setTab(giorni,el){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
+  const cr=document.getElementById("custom-range");
+  if(giorni===0){cr.classList.add("show");return;}
+  cr.classList.remove("show");
+  currentGiorni=giorni;
+  if(currentStation) caricaDati(currentStation,giorni);
 }
 
-async function fetchDatiSIR(stazione, anno) {
-  // URL dati dal GeoJSON (via Worker proxy per risolvere HTTP/CORS)
-  let url = stazione.url_dati || `http://www.sir.toscana.it/archivio/dati.php?IDST=pluvio&D=json&IDS=${stazione.codice}`;
-  url = url.replace("https://","http://");
-  url += `&Anno=${anno}`;
-  try {
-    const r = await fetch(proxySIR(url));
-    if (!r.ok) return null;
-    const d = await r.json();
-    // Il SIR restituisce report mensili se la sessione non è valida
-    if (d.Report || d.Archivio) return null;
-    const lista = d.Dati || d.dati || [];
-    return lista.map(row => ({
-      data:    normalizzaData(row.Data || row.data),
-      rain_mm: +(parseFloat(row.Valore || row.valore || 0)).toFixed(1),
-      flag:    row.Flag || row.flag || ""
-    })).filter(r => r.data);
-  } catch { return null; }
+function loadRange(){
+  const da=document.getElementById("date-from").value;
+  const a=document.getElementById("date-to").value;
+  if(!da||!a){alert("Seleziona entrambe le date");return;}
+  if(currentStation) caricaDatiRange(currentStation,da,a);
 }
 
-function normalizzaData(s) {
-  if (!s) return null;
-  for (const fmt of ["YYYY-MM-DD","DD/MM/YYYY"]) {
-    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
-    if (/^\d{2}\/\d{2}\/\d{4}$/.test(s)) {
-      const [d,m,y] = s.split("/");
-      return `${y}-${m}-${d}`;
+async function onStation(s,m){
+  if(activeM) activeM.setIcon(mkIcon("sir"));
+  m.setIcon(mkIcon("sel"));activeM=m;currentStation=s;
+  if(chart){chart.destroy();chart=null;}
+  document.getElementById("ph").style.display="block";
+  document.getElementById("ph").innerHTML=`
+    <div class="ph-name">${s.nome}</div>
+    <div class="ph-meta">${s.comune} · Prov. ${s.provincia} · ${parseFloat(s.quota||0).toFixed(0)} m s.l.m.</div>
+    <div class="ph-meta" style="color:#aaa;font-size:10px">${s.codice}</div>
+    <div class="ph-badges"><span class="badge b-sir">SIR Toscana</span><span class="badge b-om">Open-Meteo fallback</span></div>`;
+  document.getElementById("tabs").style.display="flex";
+  document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));
+  document.getElementById("custom-range").classList.remove("show");
+  currentGiorni=7;
+  const oggi=new Date();
+  document.getElementById("date-to").value=oggi.toISOString().split("T")[0];
+  document.getElementById("date-from").value=new Date(oggi-30*864e5).toISOString().split("T")[0];
+  await caricaDati(s,7);
+}
+
+async function caricaDati(s,giorni){
+  const oggi=new Date();
+  const fine=oggi.toISOString().split("T")[0];
+  const inizio=new Date(oggi-giorni*864e5).toISOString().split("T")[0];
+  await caricaDatiRange(s,inizio,fine);
+}
+
+async function caricaDatiRange(s,inizio,fine){
+  document.getElementById("pb").innerHTML=
+    `<div class="panel-loader"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati…</span></div>`;
+  if(chart){chart.destroy();chart=null;}
+  let dati=null,fonte=null;
+
+  // Prova dati scraped GHA
+  const sc=await fetchGH("pluvio_men.json");
+  if(sc?.dati?.length>0){
+    const righe=sc.dati.filter(r=>r.codice===s.codice);
+    if(righe.length>0){
+      dati=estraiScraping(righe,inizio,fine);
+      if(dati.length>0) fonte="SIR (scraping)";
     }
   }
-  return s;
+
+  // Fallback Open-Meteo
+  if(!dati||!dati.length){
+    try{dati=await fetchOM(s.lat,s.lng,inizio,fine);fonte="Open-Meteo ERA5";}
+    catch(e){document.getElementById("pb").innerHTML=`<div style="padding:20px;font-size:12px;color:#c00">Errore: ${e.message}</div>`;return;}
+  }
+
+  currentDati={stazione:s,dati,fonte,inizio,fine};
+  renderPanel(s,dati,fonte,inizio,fine);
 }
 
-async function fetchDatiOpenMeteo(stazione, inizio, fine) {
-  const url = new URL(OPEN_METEO);
-  url.searchParams.set("latitude",   stazione.lat);
-  url.searchParams.set("longitude",  stazione.lng);
-  url.searchParams.set("daily",      "precipitation_sum");
-  url.searchParams.set("start_date", inizio);
-  url.searchParams.set("end_date",   fine);
-  url.searchParams.set("timezone",   "Europe/Rome");
-  const r = await fetch(url.toString());
-  if (!r.ok) throw new Error("Open-Meteo HTTP " + r.status);
-  const d = await r.json();
+function estraiScraping(righe,inizio,fine){
+  // Nella tabella SIR pluvio_men le date sono nelle CHIAVI (intestazioni colonne)
+  // es: {"Stazione":"Borgo S. Lorenzo","14/05/2026":"4.4","13/05/2026":"0.0",...}
+  const res=[];
+  const META=new Set(["codice","tipo","riferimento","nome","comune","provincia",
+                      "lat","lng","quota","url_dettaglio"]);
+  for(const r of righe){
+    for(const[k,v] of Object.entries(r)){
+      if(META.has(k)) continue;
+      // Prova a interpretare la CHIAVE come data
+      let iso=null;
+      const mIT=k.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+      if(mIT) iso=`${mIT[3]}-${mIT[2].padStart(2,"0")}-${mIT[1].padStart(2,"0")}`;
+      else if(/^\d{4}-\d{2}-\d{2}$/.test(k)) iso=k;
+      if(!iso||iso<inizio||iso>fine) continue;
+      // Il valore è la precipitazione
+      const mm=parseFloat(String(v||0).replace(",","."));
+      res.push({data:iso,rain_mm:isNaN(mm)?0:Math.min(mm,999),flag:"SIR"});
+    }
+  }
+  return res.sort((a,b)=>a.data.localeCompare(b.data));
+}
+
+async function fetchOM(lat,lng,inizio,fine){
+  const url=new URL(OPEN_METEO);
+  url.searchParams.set("latitude",lat.toFixed(4));
+  url.searchParams.set("longitude",lng.toFixed(4));
+  url.searchParams.set("daily","precipitation_sum,rain_sum,snowfall_sum");
+  url.searchParams.set("start_date",inizio);
+  url.searchParams.set("end_date",fine);
+  url.searchParams.set("timezone","Europe/Rome");
+  const r=await fetch(url.toString());
+  if(!r.ok) throw new Error("Open-Meteo HTTP "+r.status);
+  const d=await r.json();
   return d.daily.time.map((t,i)=>({
-    data: t, rain_mm: +(parseFloat(d.daily.precipitation_sum[i]||0)).toFixed(1), flag:"OM"
+    data:t,
+    rain_mm:+(parseFloat(d.daily.precipitation_sum[i]||0)).toFixed(1),
+    snow_cm:+(parseFloat(d.daily.snowfall_sum[i]||0)).toFixed(1),
+    flag:"OM"
   }));
 }
 
-async function onStation(s, m) {
-  if (activeMarker) activeMarker.setIcon(mkIcon("active"));
-  m.setIcon(mkIcon("selected"));
-  activeMarker = m;
-  if (chart) { chart.destroy(); chart=null; }
-  currentData = null;
+function intens(mm){
+  if(mm>30) return{l:"Molto intensa",c:"#9B2226"};
+  if(mm>15) return{l:"Intensa",c:"#AE2012"};
+  if(mm>5)  return{l:"Moderata",c:"#1D9E75"};
+  if(mm>0)  return{l:"Debole",c:"#3266ad"};
+  return           {l:"Assente",c:"#bbb"};
+}
+function fmtD(iso){
+  if(!iso||iso==="–") return "–";
+  const[y,m,d]=iso.split("-");return `${d}/${m}/${y}`;
+}
 
-  setPH(s);
-  document.getElementById("pb").innerHTML =
-    `<div class="panel-loader"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati…</span></div>`;
-
-  const {inizio, fine} = dateRange(7);
-  let dati = null, fonte = null;
-
-  // 1. Prova dati scraped da GitHub Actions (reali dal SIR)
-  const scraped = await fetchGitHub("pluvio_men.json");
-  if (scraped?.dati) {
-    const righe = scraped.dati.filter(r =>
-      r.codice === s.codice ||
-      (r.nome && s.nome && r.nome.toLowerCase().includes(s.nome.toLowerCase().slice(0,6)))
-    );
-    if (righe.length > 0) {
-      // Converti il formato scraping in formato grafico
-      dati = righe.map(r => ({
-        data:    r["Data"] || r["data"] || Object.values(r)[1] || "–",
-        rain_mm: parseFloat(Object.values(r).find(v => v && !isNaN(parseFloat(v))) || 0),
-        flag:    "SIR"
-      })).filter(r => r.data !== "–").slice(-7);
-      fonte = "SIR (scraping GHA)";
-    }
+function renderPanel(s,dati,fonte,inizio,fine){
+  if(!dati||!dati.length){
+    document.getElementById("pb").innerHTML=
+      `<div style="padding:20px;font-size:12px;color:#888">Nessun dato per il periodo selezionato.</div>`;
+    return;
   }
+  const total=dati.reduce((a,b)=>a+b.rain_mm,0);
+  const mx=dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b,{rain_mm:0,data:"–"});
+  const rainDays=dati.filter(x=>x.rain_mm>0).length;
+  const avg=total/dati.length;
+  const isSIR=fonte.includes("SIR");
 
-  // 2. Fallback Open-Meteo ERA5
-  if (!dati || dati.length === 0) {
-    try {
-      dati = await fetchDatiOpenMeteo(s, inizio, fine);
-      fonte = "Open-Meteo ERA5";
-    } catch(e) {
-      document.getElementById("pb").innerHTML = `<div style="padding:20px 0;font-size:12px;color:#c00">Errore dati: ${e.message}</div>`;
-      return;
-    }
-  }
-
-  currentData = {stazione:s, dati, fonte};
-  renderPanel(s, dati, fonte);
-}
-
-/* ════════════════════════════════════════════════════════════
-   RENDERING
-   ════════════════════════════════════════════════════════════ */
-function setPH(s) {
-  const ph = document.getElementById("ph");
-  ph.style.display = "block";
-  ph.innerHTML = `
-    <div class="ph-name">${s.nome}</div>
-    <div class="ph-meta">${s.comune} · Prov. ${s.provincia} · ${parseFloat(s.quota||0).toFixed(0)} m s.l.m.</div>
-    <div class="ph-meta" style="color:#aaa">${s.codice}</div>
-    <div class="ph-badges">
-      <span class="badge badge-sir">SIR Toscana</span>
-      <span class="badge badge-om">Open-Meteo fallback</span>
-    </div>`;
-}
-
-function intensita(mm) {
-  if (mm>30) return {l:"Molto intensa", c:"#9B2226"};
-  if (mm>15) return {l:"Intensa",       c:"#AE2012"};
-  if (mm>5)  return {l:"Moderata",      c:"#1D9E75"};
-  if (mm>0)  return {l:"Debole",        c:"#3266ad"};
-  return             {l:"Assente",      c:"#bbb"};
-}
-
-function renderPanel(s, dati, fonte) {
-  const total    = dati.reduce((a,b)=>a+b.rain_mm, 0);
-  const mx       = dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b, {rain_mm:0});
-  const rainDays = dati.filter(x=>x.rain_mm>0).length;
-  const avg      = dati.length ? total/dati.length : 0;
-  const labels   = dati.map(x=>{ const [y,m,d]=x.data.split("-"); return d+"/"+m; });
-  const vals     = dati.map(x=>x.rain_mm);
-  const colors   = vals.map(v=>v>15?"rgba(155,34,38,.8)":v>5?"rgba(29,158,117,.75)":v>0?"rgba(50,102,173,.6)":"rgba(200,198,188,.35)");
-  const fonteLabel = fonte==="SIR"
-    ? `<span class="badge badge-sir">Dati SIR ufficiali</span>`
-    : `<span class="badge badge-warn">Dati Open-Meteo (modello ERA5)</span>`;
-
-  document.getElementById("pb").innerHTML = `
-    <div class="sec" style="display:flex;align-items:center;justify-content:space-between;margin-top:0">
-      <span>Fonte dati</span>
+  document.getElementById("pb").innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+      <span class="badge ${isSIR?"b-sir":"b-om"}">${fonte}</span>
+      <span style="font-size:10px;color:#aaa">${fmtD(inizio)} – ${fmtD(fine)} (${dati.length} gg)</span>
     </div>
-    <div style="margin-bottom:10px">${fonteLabel}</div>
-    <div class="sec">Riepilogo 7 giorni</div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="sl">Totale</div><div class="sv">${total.toFixed(1)}<span class="su"> mm</span></div></div>
-      <div class="stat-card"><div class="sl">Max giornaliero</div><div class="sv">${mx.rain_mm.toFixed(1)}<span class="su"> mm</span></div></div>
-      <div class="stat-card"><div class="sl">Giorni piovosi</div><div class="sv">${rainDays}<span class="su"> / ${dati.length}</span></div></div>
-      <div class="stat-card"><div class="sl">Media giornaliera</div><div class="sv">${avg.toFixed(1)}<span class="su"> mm</span></div></div>
+    <div class="sec">Riepilogo periodo</div>
+    <div class="sg">
+      <div class="sc"><div class="sl">Totale</div><div class="sv">${total.toFixed(1)}<span class="su"> mm</span></div></div>
+      <div class="sc"><div class="sl">Max giornaliero</div><div class="sv">${mx.rain_mm.toFixed(1)}<span class="su"> mm</span></div></div>
+      <div class="sc"><div class="sl">Giorni piovosi</div><div class="sv">${rainDays}<span class="su"> /${dati.length}</span></div></div>
+      <div class="sc"><div class="sl">Media giornaliera</div><div class="sv">${avg.toFixed(1)}<span class="su"> mm</span></div></div>
     </div>
     <div class="sec">Precipitazioni giornaliere</div>
-    <div class="chart-wrap">
-      <canvas id="rc" role="img" aria-label="Precipitazioni stazione ${s.nome}">${dati.map(x=>x.data+":"+x.rain_mm+"mm").join(", ")}</canvas>
-    </div>
+    <div class="cw"><canvas id="rc"></canvas></div>
     <div class="sec">Dati tabellari</div>
     <table class="dt">
-      <thead><tr><th>Data</th><th>mm</th><th>Flag</th><th>Intensità</th></tr></thead>
+      <thead><tr><th>Data</th><th>mm</th><th>Fonte</th><th>Intensità</th></tr></thead>
       <tbody id="rain-tbody"></tbody>
     </table>
-    <div class="btn-row">
-      <button class="btn" onclick="scaricaCSV()">
+    <div class="br">
+      <button class="btn bxl" onclick="esportaExcel()">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        CSV
+        Scarica Excel
       </button>
-      <button class="btn" onclick="scaricaJSON()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        JSON
-      </button>
-      <a class="btn btn-sir" href="https://www.sir.toscana.it/pluviometria-pub" target="_blank">
-        SIR ↗
-      </a>
+      <button class="btn bgr" onclick="esportaCSV()">CSV</button>
+      <button class="btn bgr" onclick="esportaJSON()">JSON</button>
     </div>
-    <div class="source-note">
-      ${fonte==="SIR"
-        ? "Dati stazione ufficiali – <a href='https://www.sir.toscana.it' target='_blank'>sir.toscana.it</a>"
-        : "Modello ERA5/HRES – <a href='https://open-meteo.com' target='_blank'>open-meteo.com</a><br>Per dati ufficiali: <a href='https://www.sir.toscana.it/pluviometria-pub' target='_blank'>sir.toscana.it</a>"}
+    <div class="sn">
+      ${isSIR?`Dati SIR – <a href="https://www.sir.toscana.it" target="_blank">sir.toscana.it</a>`
+             :`ERA5 – <a href="https://open-meteo.com" target="_blank">open-meteo.com</a>`}
+      &nbsp;·&nbsp;<a href="https://www.sir.toscana.it/pluviometria-pub" target="_blank">Portale SIR ↗</a>
     </div>`;
 
-  const tbody = document.getElementById("rain-tbody");
-  dati.forEach(r => {
-    const [y,mo,d] = r.data.split("-");
-    const {l,c} = intensita(r.rain_mm);
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${d}/${mo}/${y}</td><td style="font-weight:600;color:${c}">${r.rain_mm.toFixed(1)}</td><td style="color:#aaa;font-size:10px">${r.flag||"–"}</td><td style="color:${c};font-size:10px">${l}</td>`;
+  const tbody=document.getElementById("rain-tbody");
+  dati.forEach(r=>{
+    const{l,c}=intens(r.rain_mm);
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${fmtD(r.data)}</td><td style="font-weight:600;color:${c}">${r.rain_mm.toFixed(1)}</td><td style="color:#aaa;font-size:10px">${r.flag||"–"}</td><td style="color:${c};font-size:10px">${l}</td>`;
     tbody.appendChild(tr);
   });
 
-  chart = new Chart(document.getElementById("rc"),{
+  // Raggruppa per settimana se > 60 punti
+  let dG=dati,lG=dati.map(r=>fmtD(r.data).slice(0,5));
+  if(dati.length>60){
+    const sw={};
+    dati.forEach(r=>{
+      const d=new Date(r.data),lun=new Date(d);
+      lun.setDate(d.getDate()-d.getDay()+1);
+      const k=lun.toISOString().split("T")[0];
+      if(!sw[k]) sw[k]={data:k,rain_mm:0,flag:r.flag};
+      sw[k].rain_mm=+(sw[k].rain_mm+r.rain_mm).toFixed(1);
+    });
+    dG=Object.values(sw).sort((a,b)=>a.data.localeCompare(b.data));
+    lG=dG.map(r=>`S.${fmtD(r.data).slice(0,5)}`);
+  }
+  const vals=dG.map(r=>r.rain_mm);
+  if(chart){chart.destroy();chart=null;}
+  chart=new Chart(document.getElementById("rc"),{
     type:"bar",
-    data:{labels, datasets:[{label:"mm", data:vals,
-      backgroundColor:colors,
-      borderColor:colors.map(c=>c.replace(".75","1").replace(".6","1").replace(".35","1").replace(".8","1")),
-      borderWidth:1, borderRadius:4}]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>`${(+c.raw).toFixed(1)} mm — ${intensita(c.raw).l}`}}},
+    data:{labels:lG,datasets:[{label:"mm",data:vals,
+      backgroundColor:vals.map(v=>v>15?"rgba(155,34,38,.75)":v>5?"rgba(29,158,117,.75)":v>0?"rgba(50,102,173,.6)":"rgba(200,198,188,.3)"),
+      borderWidth:0,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${(+c.raw).toFixed(1)} mm`}}},
       scales:{
-        x:{grid:{display:false}, ticks:{font:{size:10},maxRotation:0,autoSkip:false}},
-        y:{beginAtZero:true, ticks:{font:{size:10},callback:v=>v+"mm"}, grid:{color:"rgba(0,0,0,.06)"}}
-      }
-    }
+        x:{grid:{display:false},ticks:{font:{size:9},maxRotation:45,autoSkip:true,maxTicksLimit:20}},
+        y:{beginAtZero:true,ticks:{font:{size:9},callback:v=>v+"mm"},grid:{color:"rgba(0,0,0,.05)"}}
+      }}
   });
 }
 
-/* ════════════════════════════════════════════════════════════
-   DOWNLOAD
-   ════════════════════════════════════════════════════════════ */
-function scaricaCSV() {
-  if (!currentData) return;
-  const {stazione:s, dati, fonte} = currentData;
-  const BOM = "\uFEFF";
-  const hdr = "Codice,Stazione,Comune,Provincia,Quota_m,Lat,Lng,Fonte,Data,Precipitazione_mm,Flag,Intensità\n";
-  const rows = dati.map(r => {
-    const {l} = intensita(r.rain_mm);
-    return `"${s.codice}","${s.nome}","${s.comune}","${s.provincia}","${parseFloat(s.quota||0).toFixed(0)}","${s.lat}","${s.lng}","${fonte}","${r.data}","${r.rain_mm.toFixed(1)}","${r.flag||""}","${l}"`;
+function esportaExcel(){
+  if(!currentDati) return;
+  const{stazione:s,dati,fonte,inizio,fine}=currentDati;
+  const righe=dati.map(r=>{const{l}=intens(r.rain_mm);return{
+    "Data":fmtD(r.data),"Data ISO":r.data,
+    "Precipitazione (mm)":r.rain_mm,"Intensità":l,"Fonte":r.flag||fonte,
+    "Codice":s.codice,"Stazione":s.nome,"Comune":s.comune,
+    "Provincia":s.provincia,"Quota (m)":parseFloat(s.quota||0).toFixed(0),
+    "Lat":s.lat,"Lng":s.lng};});
+  const total=dati.reduce((a,b)=>a+b.rain_mm,0);
+  const mx=dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b,{rain_mm:0,data:"–"});
+  const riepilogo=[
+    {Parametro:"Stazione",Valore:s.nome},{Parametro:"Codice",Valore:s.codice},
+    {Parametro:"Comune",Valore:s.comune},{Parametro:"Provincia",Valore:s.provincia},
+    {Parametro:"Quota (m s.l.m.)",Valore:parseFloat(s.quota||0).toFixed(0)},
+    {Parametro:"Periodo inizio",Valore:fmtD(inizio)},{Parametro:"Periodo fine",Valore:fmtD(fine)},
+    {Parametro:"Giorni totali",Valore:dati.length},
+    {Parametro:"Precipitazione totale (mm)",Valore:total.toFixed(1)},
+    {Parametro:"Max giornaliero (mm)",Valore:mx.rain_mm.toFixed(1)},
+    {Parametro:"Data max",Valore:fmtD(mx.data)},
+    {Parametro:"Giorni piovosi",Valore:dati.filter(x=>x.rain_mm>0).length},
+    {Parametro:"Media giornaliera (mm)",Valore:(total/dati.length).toFixed(1)},
+    {Parametro:"Fonte dati",Valore:fonte},
+    {Parametro:"Generato il",Valore:new Date().toLocaleString("it-IT")},
+  ];
+  const wb=XLSX.utils.book_new();
+  const ws1=XLSX.utils.json_to_sheet(righe);
+  ws1["!cols"]=[{wch:12},{wch:12},{wch:20},{wch:16},{wch:8},{wch:14},{wch:25},{wch:20},{wch:10},{wch:8},{wch:10},{wch:10}];
+  XLSX.utils.book_append_sheet(wb,ws1,"Dati giornalieri");
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(riepilogo),"Riepilogo");
+  XLSX.writeFile(wb,`SIR_${s.codice}_${inizio}_${fine}.xlsx`);
+}
+
+function esportaCSV(){
+  if(!currentDati) return;
+  const{stazione:s,dati,fonte,inizio,fine}=currentDati;
+  const h="Data,Data ISO,Precipitazione_mm,Intensità,Fonte,Codice,Stazione,Comune,Provincia,Quota_m,Lat,Lng\n";
+  const rows=dati.map(r=>{const{l}=intens(r.rain_mm);
+    return`"${fmtD(r.data)}","${r.data}","${r.rain_mm}","${l}","${r.flag||fonte}","${s.codice}","${s.nome}","${s.comune}","${s.provincia}","${parseFloat(s.quota||0).toFixed(0)}","${s.lat}","${s.lng}"`;
   }).join("\n");
-  dl(BOM+hdr+rows, `${s.codice}_${new Date().toISOString().split("T")[0]}.csv`, "text/csv;charset=utf-8;");
+  dl("\uFEFF"+h+rows,`SIR_${s.codice}_${inizio}_${fine}.csv`,"text/csv");
 }
 
-function scaricaJSON() {
-  if (!currentData) return;
-  const {stazione, dati, fonte} = currentData;
-  const payload = {stazione, fonte, generato: new Date().toISOString(), dati};
-  dl(JSON.stringify(payload,null,2), `${stazione.codice}_${new Date().toISOString().split("T")[0]}.json`, "application/json");
+function esportaJSON(){
+  if(!currentDati) return;
+  const{stazione,dati,fonte,inizio,fine}=currentDati;
+  dl(JSON.stringify({stazione,fonte,inizio,fine,generato:new Date().toISOString(),totale:dati.length,dati},null,2),
+    `SIR_${stazione.codice}_${inizio}_${fine}.json`,"application/json");
 }
 
-function dl(content, filename, type) {
-  const blob = new Blob([content],{type});
-  const url  = URL.createObjectURL(blob);
-  const a    = Object.assign(document.createElement("a"),{href:url,download:filename});
-  document.body.appendChild(a); a.click();
-  document.body.removeChild(a); URL.revokeObjectURL(url);
+function dl(content,filename,type){
+  const blob=new Blob([content],{type});
+  const url=URL.createObjectURL(blob);
+  const a=Object.assign(document.createElement("a"),{href:url,download:filename});
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(url);
 }
 
-function setMsg(msg) {
-  const el = document.getElementById("overlay-msg");
-  if (el) el.innerHTML = msg;
-}
+function setMsg(msg){const el=document.getElementById("overlay-msg");if(el)el.innerHTML=msg;}
 
-/* ════════════════════════════════════════════════════════════
-   AVVIO
-   ════════════════════════════════════════════════════════════ */
-
-loadStations().catch(e => setMsg(`❌ Errore: ${e.message}`));
+loadStations().catch(e=>setMsg(`❌ ${e.message}`));
 </script>
 </body>
 </html>
