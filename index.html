@@ -10,25 +10,25 @@
 body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3ef;color:#1c1b19;height:100vh;display:flex;flex-direction:column;overflow:hidden}
 header{background:#fff;border-bottom:1px solid #dddbd0;padding:9px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 header h1{font-size:13px;font-weight:600}
-#hbadge{margin-left:auto;font-size:10px;color:#aaa;white-space:nowrap}
+#hbadge{margin-left:auto;font-size:10px;color:#aaa}
 #app{display:flex;flex:1;overflow:hidden}
 #map-wrap{flex:1;position:relative}
 #map{width:100%;height:100%}
 #overlay{position:absolute;inset:0;background:rgba(244,243,239,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;gap:10px;font-size:13px;color:#666}
 .spinner{width:22px;height:22px;border:2.5px solid #dddbd0;border-top-color:#1D9E75;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#panel{width:340px;background:#fff;border-left:1px solid #dddbd0;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+#panel{width:360px;background:#fff;border-left:1px solid #dddbd0;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
 #ph{padding:12px 14px 10px;border-bottom:1px solid #dddbd0;flex-shrink:0;display:none}
 .ph-name{font-size:14px;font-weight:600}
 .ph-meta{font-size:11px;color:#888;margin-top:2px}
-.ph-links{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.ph-links{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
 .pill{font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:3px}
 .pill-sir{background:#e5f2ec;color:#0F6E56}
 .pill-om{background:#e6f1fb;color:#185fa5}
 .pill-ext{background:#f0efe9;color:#555}
 .pill-ext:hover{background:#e4e3db}
 #tabs{display:flex;border-bottom:1px solid #dddbd0;flex-shrink:0;background:#fafaf8}
-.tab{flex:1;font-size:10px;font-weight:600;padding:7px 2px;border:none;background:transparent;cursor:pointer;color:#aaa;border-bottom:2px solid transparent;transition:all .15s;letter-spacing:.02em}
+.tab{flex:1;font-size:10px;font-weight:600;padding:7px 2px;border:none;background:transparent;cursor:pointer;color:#aaa;border-bottom:2px solid transparent;transition:all .15s}
 .tab.on{color:#1D9E75;border-bottom-color:#1D9E75;background:#fff}
 .tab:hover:not(.on){color:#555}
 #cr{display:none;padding:7px 12px;border-bottom:1px solid #dddbd0;background:#fafaf8;gap:6px;align-items:center;flex-shrink:0}
@@ -39,23 +39,33 @@ header h1{font-size:13px;font-weight:600}
 #pb{flex:1;overflow-y:auto;padding:0}
 .empty-st{display:flex;flex-direction:column;align-items:center;justify-content:center;height:90%;gap:10px;color:#bbb;font-size:12px;text-align:center;padding:20px;line-height:1.7}
 .ld{display:flex;align-items:center;gap:10px;padding:24px 14px;color:#888;font-size:12px}
-.sir-block{background:#e5f2ec;border-bottom:1px solid #d0e8d9;padding:11px 14px}
-.sir-block-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.sir-block-title{font-size:10px;font-weight:700;color:#0F6E56;letter-spacing:.06em;text-transform:uppercase}
-.sir-block-ref{font-size:10px;color:#3a8a62}
-.cum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-.cum-card{background:rgba(255,255,255,.7);border-radius:6px;padding:6px 5px;text-align:center}
-.cum-label{font-size:9px;color:#3a8a62;font-weight:600;margin-bottom:2px}
-.cum-val{font-size:14px;font-weight:700;color:#0F6E56}
-.cum-unit{font-size:9px;font-weight:400;color:#3a8a62}
+/* SIR block */
+.sir-block{background:#e8f5ee;border-bottom:1px solid #c8e6d4;padding:12px 14px}
+.sir-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sir-title{font-size:10px;font-weight:700;color:#0F6E56;letter-spacing:.06em;text-transform:uppercase}
+.sir-ref{font-size:9px;color:#5a9e78;max-width:160px;text-align:right;line-height:1.4}
+.oggi-row{display:flex;align-items:baseline;gap:6px;background:rgba(255,255,255,.6);border-radius:8px;padding:8px 10px;margin-bottom:10px}
+.oggi-label{font-size:11px;font-weight:600;color:#0F6E56}
+.oggi-val{font-size:26px;font-weight:700;color:#0F6E56;line-height:1}
+.oggi-unit{font-size:11px;color:#3a8a62}
+.oggi-ts{font-size:10px;color:#aaa;margin-left:auto}
+/* Tabella comparativa SIR vs ERA5 */
+.cmp-table{width:100%;font-size:11px;border-collapse:collapse;margin-top:2px}
+.cmp-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 6px;border-bottom:1px solid #c8e6d4;color:#3a8a62;text-align:right}
+.cmp-table th:first-child{text-align:left}
+.cmp-table td{padding:4px 6px;border-bottom:1px solid rgba(200,230,212,.5);text-align:right;font-weight:500}
+.cmp-table td:first-child{text-align:left;color:#3a8a62;font-weight:600}
+.cmp-table tr:last-child td{border-bottom:none}
+.diff-pos{color:#1D9E75}.diff-neg{color:#AE2012}.diff-zero{color:#aaa}
+/* ERA5 block */
 .era-block{padding:12px 14px}
 .sec{font-size:9px;font-weight:700;color:#bbb;margin:10px 0 5px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0 0 12px}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0 0 10px}
 .sc{background:#f4f3ef;border-radius:8px;padding:9px 11px}
 .sl{font-size:9px;color:#888;margin-bottom:3px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
 .sv{font-size:17px;font-weight:600;line-height:1}
 .su{font-size:10px;font-weight:400;color:#888}
-.cw{position:relative;height:170px;margin:4px 0 12px}
+.cw{position:relative;height:170px;margin:4px 0 10px}
 table.dt{width:100%;font-size:11px;border-collapse:collapse;margin-bottom:4px}
 table.dt th{text-align:left;color:#888;font-weight:600;padding:3px 5px;border-bottom:1px solid #eee;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
 table.dt td{padding:4px 5px;border-bottom:1px solid #f0efe9}
@@ -64,8 +74,8 @@ table.dt td{padding:4px 5px;border-bottom:1px solid #f0efe9}
 .btn:hover{background:#f4f3ef}
 .bxl{background:#1D9E75;color:#fff;border-color:#1D9E75;flex:1}
 .bxl:hover{background:#0F6E56}
-.bgr{border-color:#1D9E75;color:#0F6E56}
-.bgr:hover{background:#e5f2ec}
+.bgr{border-color:#dddbd0;color:#555}
+.bgr:hover{background:#f4f3ef}
 .sn{font-size:10px;color:#bbb;margin:6px 0 14px;text-align:center;line-height:1.7}
 .sn a{color:#185fa5;text-decoration:none}
 #statusbar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.9);border-top:1px solid #dddbd0;padding:4px 12px;font-size:10px;color:#888;display:flex;align-items:center;gap:8px;z-index:500}
@@ -80,7 +90,7 @@ table.dt td{padding:4px 5px;border-bottom:1px solid #f0efe9}
 <header>
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
   <h1>Pluviometria – Rete SIR Regione Toscana</h1>
-  <span id="hbadge">SIR Toscana · Open-Meteo ERA5</span>
+  <span id="hbadge">SIR · Open-Meteo ERA5</span>
 </header>
 <div id="app">
   <div id="map-wrap">
@@ -123,71 +133,100 @@ const SIR_GJ  = "http://www.sir.toscana.it/archivio/dati.php?D=json_stations";
 const OM_BASE = "https://archive-api.open-meteo.com/v1/archive";
 const GH_BASE = "https://raw.githubusercontent.com/ebbenetriglav/pluviometria-toscana/main/data";
 
-// Colonne cumulate SIR con nomi corretti dalla tabella reale
-const CUM_COLS=[
-  {key:"pcum",  label:"Oggi"},
-  {key:"1g",    label:"1 giorno"},
-  {key:"2g",    label:"2 giorni"},
-  {key:"5g",    label:"5 giorni"},
-  {key:"7g",    label:"7 giorni"},
-  {key:"10g",   label:"10 giorni"},
-  {key:"15g",   label:"15 giorni"},
-  {key:"30g",   label:"30 giorni"},
+// Periodi cumulati SIR (chiavi nel JSON scrappato)
+// La chiave può avere spazi normali o \xa0 a seconda della versione scraper
+const CUM_PERIODS = [
+  {keys:["pcum"],          label:"Oggi",     days:0},
+  {keys:["1g","1\u00a0g"], label:"1 giorno", days:1},
+  {keys:["2g","2\u00a0g"], label:"2 giorni", days:2},
+  {keys:["5g","5\u00a0g"], label:"5 giorni", days:5},
+  {keys:["7g","7\u00a0g"], label:"7 giorni", days:7},
+  {keys:["10g","10\u00a0g"],label:"10 giorni",days:10},
+  {keys:["15g","15\u00a0g"],label:"15 giorni",days:15},
+  {keys:["30g","30\u00a0g"],label:"30 giorni",days:30},
 ];
 
-const proxy=u=>`${WORKER}?url=${encodeURIComponent(u)}`;
-const ghFetch=async f=>{try{const r=await fetch(`${GH_BASE}/${f}?t=${Date.now()}`);return r.ok?r.json():null;}catch{return null;}};
+const proxy   = u => `${WORKER}?url=${encodeURIComponent(u)}`;
+const ghFetch = async f => {
+  try{const r=await fetch(`${GH_BASE}/${f}?t=${Date.now()}`);return r.ok?r.json():null;}
+  catch{return null;}
+};
 
-const map=L.map("map",{center:[43.6,11.1],zoom:8});
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© <a href='https://openstreetmap.org/copyright'>OpenStreetMap</a>"}).addTo(map);
-const mkIcon=sel=>L.divIcon({
+/* ── Mappa ── */
+const map = L.map("map",{center:[43.6,11.1],zoom:8});
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+  attribution:"© <a href='https://openstreetmap.org/copyright'>OpenStreetMap</a>"
+}).addTo(map);
+const mkIcon = sel => L.divIcon({
   html:`<div style="width:10px;height:10px;border-radius:50%;background:${sel?"#D85A30":"#1D9E75"};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.5)"></div>`,
   className:"",iconSize:[10,10],iconAnchor:[5,5]
 });
 
 let activeM=null,chart=null,curSt=null,curDati=null,curGiorni=7,pluvioMen=null;
 
+/* ── Carica stazioni ── */
 async function loadStations(){
   let st=[];
   setMsg("Caricamento stazioni…");
-  const c=await ghFetch("stazioni.json");
+  const c = await ghFetch("stazioni.json");
   if(c?.stazioni?.length>0){
     st=c.stazioni;
-    document.getElementById("sc-age").textContent=`· Agg: ${new Date(c.aggiornato).toLocaleString("it-IT")}`;
+    document.getElementById("sc-age").textContent=
+      `· Agg: ${new Date(c.aggiornato).toLocaleString("it-IT")}`;
   }
   if(!st.length){
     setMsg("Caricamento via Worker…");
-    try{const r=await fetch(proxy(SIR_GJ));if(!r.ok)throw new Error("HTTP "+r.status);st=parseGJ(await r.json());}
-    catch(e){setMsg(`❌ ${e.message}`);return;}
+    try{
+      const r=await fetch(proxy(SIR_GJ));
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      st=parseGJ(await r.json());
+    }catch(e){setMsg(`❌ ${e.message}`);return;}
   }
   if(!st.length){setMsg("❌ Nessuna stazione.");return;}
-  ghFetch("pluvio_men.json").then(d=>{if(d?.dati?.length>0)pluvioMen=d;});
+
+  // Precarica pluvio_men in background
+  ghFetch("pluvio_men.json").then(d=>{if(d?.dati?.length>0) pluvioMen=d;});
+
   document.getElementById("overlay").style.display="none";
   document.getElementById("sc-cnt").textContent=st.length;
   st.forEach(s=>{
     const m=L.marker([s.lat,s.lng],{icon:mkIcon(false)}).addTo(map);
     m._s=s;
-    m.bindTooltip(`<b>${s.nome}</b><br><span style="font-size:10px;color:#888">${s.comune} (${s.provincia}) · ${parseFloat(s.quota||0).toFixed(0)}m · ${s.codice}</span>`,
-      {className:"leaflet-tooltip",direction:"top",offset:[0,-6]});
+    m.bindTooltip(
+      `<b>${s.nome}</b><br><span style="font-size:10px;color:#888">${s.comune} (${s.provincia}) · ${parseFloat(s.quota||0).toFixed(0)}m · ${s.codice}</span>`,
+      {className:"leaflet-tooltip",direction:"top",offset:[0,-6]}
+    );
     m.on("click",()=>onStation(s,m));
   });
-  try{const g=L.featureGroup(Object.values(map._layers).filter(l=>l instanceof L.Marker));if(g.getLayers().length)map.fitBounds(g.getBounds().pad(.04));}catch{}
+  try{
+    const g=L.featureGroup(Object.values(map._layers).filter(l=>l instanceof L.Marker));
+    if(g.getLayers().length) map.fitBounds(g.getBounds().pad(.04));
+  }catch{}
 }
 
 function parseGJ(gj){
   return(gj.features||[]).filter(f=>{
-    if(f.geometry?.type!=="Point")return false;
+    if(f.geometry?.type!=="Point") return false;
     const c=f.properties?.Consistenza||{};
-    return Object.keys(c).some(k=>k.includes("PLUVIOMETRIA")&&k.includes("9-9")&&(c[k].Anni||[]).flat().some(a=>a==="2026"||a==="2025"));
+    const items = typeof c.entries==="function" ? [...c.entries()] :
+                  Array.isArray(c) ? c.map(x=>([x.tipo||"",x])) :
+                  Object.entries(c);
+    return items.some(([k,v])=>
+      String(k).includes("PLUVIOMETRIA")&&String(k).includes("9-9")&&
+      (v.Anni||[]).flat().some(a=>a==="2026"||a==="2025")
+    );
   }).map(f=>{
     const p=f.properties,[lng,lat]=f.geometry.coordinates;
-    return{codice:p.Codice,nome:p.Nome,comune:p.Comune,provincia:p.Provincia,quota:p["Quota mslm"]||"",lat:+lat.toFixed(6),lng:+lng.toFixed(6)};
+    return{codice:p.Codice,nome:p.Nome,comune:p.Comune,
+           provincia:p.Provincia,quota:p["Quota mslm"]||"",
+           lat:+lat.toFixed(6),lng:+lng.toFixed(6)};
   });
 }
 
+/* ── Selezione stazione ── */
 async function onStation(s,m){
-  if(activeM)activeM.setIcon(mkIcon(false));
-  m.setIcon(mkIcon(true));activeM=m;curSt=s;curGiorni=7;
+  if(activeM) activeM.setIcon(mkIcon(false));
+  m.setIcon(mkIcon(true)); activeM=m; curSt=s; curGiorni=7;
   if(chart){chart.destroy();chart=null;}
   showPH(s);
   document.getElementById("tabs").style.display="flex";
@@ -198,12 +237,12 @@ async function onStation(s,m){
 
 function setTab(g,el){
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));
-  el.classList.add("on");curGiorni=g;
+  el.classList.add("on"); curGiorni=g;
   if(g===0){
     const o=new Date();
     document.getElementById("dt").value=o.toISOString().split("T")[0];
     document.getElementById("df").value=new Date(o-30*864e5).toISOString().split("T")[0];
-    document.getElementById("cr").classList.add("show");return;
+    document.getElementById("cr").classList.add("show"); return;
   }
   document.getElementById("cr").classList.remove("show");
   carica(curSt,g);
@@ -221,103 +260,201 @@ async function carica(s,giorni){
   await caricaRange(s,inizio,fine);
 }
 
+/* ── ERA5 fetch ── */
 async function fetchERA5(lat,lng,inizio,fine){
   const url=new URL(OM_BASE);
-  url.searchParams.set("latitude",lat.toFixed(4));url.searchParams.set("longitude",lng.toFixed(4));
+  url.searchParams.set("latitude",lat.toFixed(4));
+  url.searchParams.set("longitude",lng.toFixed(4));
   url.searchParams.set("daily","precipitation_sum,snowfall_sum");
-  url.searchParams.set("start_date",inizio);url.searchParams.set("end_date",fine);
+  url.searchParams.set("start_date",inizio);
+  url.searchParams.set("end_date",fine);
   url.searchParams.set("timezone","Europe/Rome");
   const r=await fetch(url.toString());
-  if(!r.ok)throw new Error("Open-Meteo HTTP "+r.status);
+  if(!r.ok) throw new Error("Open-Meteo HTTP "+r.status);
   const d=await r.json();
-  return d.daily.time.map((t,i)=>({data:t,rain_mm:+(parseFloat(d.daily.precipitation_sum[i]||0)).toFixed(1),flag:"ERA5"}));
+  return d.daily.time.map((t,i)=>({
+    data:t,
+    rain_mm:+(parseFloat(d.daily.precipitation_sum[i]||0)).toFixed(1)
+  }));
 }
 
-function cercaCumulati(s){
+/* ── SIR: cerca riga per stazione ── */
+function getVal(row, keys){
+  for(const k of keys){
+    const v=row[k];
+    if(v!=null){
+      const n=typeof v==="number"?v:parseFloat(String(v).replace(",","."));
+      if(!isNaN(n)) return n;
+    }
+  }
+  return null;
+}
+
+function cercaSIR(s){
   if(!pluvioMen?.dati) return null;
-  // Match per codice (campo estratto dal link nella tabella SIR)
-  let righe = pluvioMen.dati.filter(r=>r.codice===s.codice);
-  // Fallback: match per nome stazione
-  if(!righe.length){
-    const nm = s.nome.toLowerCase().slice(0,7);
-    righe = pluvioMen.dati.filter(r=>
-      (r.stazione||"").toLowerCase().includes(nm) ||
+  let row = pluvioMen.dati.find(r=>r.codice===s.codice);
+  if(!row){
+    const nm=s.nome.toLowerCase().slice(0,7);
+    row=pluvioMen.dati.find(r=>
+      (r.stazione||"").toLowerCase().includes(nm)||
       (r.nome||"").toLowerCase().includes(nm)
     );
   }
-  if(!righe.length) return null;
-  const r = righe[0];
-  const ref = pluvioMen.riferimento || r.riferimento || r.ultimo_dato || "";
-  const cum = {};
-  CUM_COLS.forEach(({key,label})=>{
-    const v = r[key];
-    const n = typeof v==="number" ? v : parseFloat(String(v||"").replace(",","."));
-    if(!isNaN(n) && n !== null) cum[label] = n;
+  if(!row) return null;
+  const result={
+    ref: pluvioMen.riferimento||row.riferimento||"",
+    ultimo: row.ultimo_dato||row["ultimi\u00a0dati"]||"",
+    periodi:{}
+  };
+  CUM_PERIODS.forEach(({keys,label})=>{
+    const v=getVal(row,keys);
+    if(v!==null) result.periodi[label]=v;
   });
-  return Object.keys(cum).length ? {cum, ref, ultimo:r.ultimo_dato||""} : null;
+  return Object.keys(result.periodi).length ? result : null;
 }
 
+/* ── Calcola cumulati ERA5 per confronto ── */
+function calcolaERA5Cumulati(dati){
+  // dati ordinati dalla più vecchia alla più recente
+  const oggi=new Date();
+  oggi.setHours(0,0,0,0);
+  const cum={};
+  // somma per ogni periodo (ultimi N giorni dalla fine del dataset)
+  [1,2,5,7,10,15,30].forEach(n=>{
+    const soglia=new Date(oggi-n*864e5).toISOString().split("T")[0];
+    const somma=dati
+      .filter(r=>r.data>=soglia)
+      .reduce((a,b)=>a+b.rain_mm,0);
+    cum[`${n} ${n===1?"giorno":"giorni"}`]=+somma.toFixed(1);
+  });
+  return cum;
+}
+
+/* ── Carica dati per range ── */
 async function caricaRange(s,inizio,fine){
-  document.getElementById("pb").innerHTML=`<div class="ld"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati ERA5…</span></div>`;
+  document.getElementById("pb").innerHTML=
+    `<div class="ld"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati…</span></div>`;
   if(chart){chart.destroy();chart=null;}
-  let dati;
-  try{dati=await fetchERA5(s.lat,s.lng,inizio,fine);}
-  catch(e){document.getElementById("pb").innerHTML=`<div style="padding:20px;font-size:12px;color:#c00">Errore: ${e.message}</div>`;return;}
-  curDati={stazione:s,dati,inizio,fine};
-  renderPanel(s,dati,inizio,fine,cercaCumulati(s));
+
+  // Fetch ERA5 — sempre almeno 30gg per poter fare il confronto con SIR
+  const fine30=new Date().toISOString().split("T")[0];
+  const inizio30=new Date(new Date()-30*864e5).toISOString().split("T")[0];
+  const inizioEff=inizio<inizio30?inizio:inizio30;
+
+  let datiAll;
+  try{datiAll=await fetchERA5(s.lat,s.lng,inizioEff,fine30);}
+  catch(e){
+    document.getElementById("pb").innerHTML=
+      `<div style="padding:20px;font-size:12px;color:#c00">Errore ERA5: ${e.message}</div>`;
+    return;
+  }
+  // Filtra al range richiesto per il grafico
+  const datiRange=datiAll.filter(r=>r.data>=inizio&&r.data<=fine);
+
+  curDati={stazione:s,dati:datiRange,datiAll,inizio,fine};
+  const sirData=cercaSIR(s);
+  const era5Cum=calcolaERA5Cumulati(datiAll);
+  renderPanel(s,datiRange,datiAll,inizio,fine,sirData,era5Cum);
 }
 
-function fmtD(iso){if(!iso||iso==="–")return"–";const[y,m,d]=iso.split("-");return`${d}/${m}/${y}`;}
+/* ── Utility ── */
+function fmtD(iso){
+  if(!iso||iso==="–")return"–";
+  const[y,m,d]=iso.split("-");return`${d}/${m}/${y}`;
+}
 function intens(mm){
-  if(mm>30)return{l:"Molto intensa",c:"#9B2226"};if(mm>15)return{l:"Intensa",c:"#AE2012"};
-  if(mm>5)return{l:"Moderata",c:"#1D9E75"};if(mm>0)return{l:"Debole",c:"#3266ad"};
-  return{l:"Assente",c:"#bbb"};
+  if(mm>30)return{l:"Molto intensa",c:"#9B2226"};
+  if(mm>15)return{l:"Intensa",c:"#AE2012"};
+  if(mm>5) return{l:"Moderata",c:"#1D9E75"};
+  if(mm>0) return{l:"Debole",c:"#3266ad"};
+  return          {l:"Assente",c:"#bbb"};
 }
 
-function renderPanel(s,dati,inizio,fine,sirCum){
-  const total=dati.reduce((a,b)=>a+b.rain_mm,0);
-  const mx=dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b,{rain_mm:0,data:"–"});
+/* ── Rendering pannello ── */
+function renderPanel(s,dati,datiAll,inizio,fine,sirData,era5Cum){
+  const total   =dati.reduce((a,b)=>a+b.rain_mm,0);
+  const mx      =dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b,{rain_mm:0,data:"–"});
   const rainDays=dati.filter(x=>x.rain_mm>0).length;
-  const avg=dati.length?total/dati.length:0;
+  const avg     =dati.length?total/dati.length:0;
 
+  /* ── Blocco SIR ── */
   let sirHtml="";
-  if(sirCum){
-    // Pcum "Oggi" separato, più prominente
-    const oggi = sirCum.cum["Oggi"];
-    const altriEntries = Object.entries(sirCum.cum).filter(([l])=>l!=="Oggi");
-    const oggiHtml = oggi!=null ? `<div style="display:flex;align-items:baseline;gap:6px;margin-bottom:8px">
-      <span style="font-size:11px;font-weight:700;color:#0F6E56">Oggi (cum. da 00.00):</span>
-      <span style="font-size:22px;font-weight:700;color:#0F6E56">${oggi.toFixed(1)}</span>
-      <span style="font-size:11px;color:#3a8a62">mm</span>
-      ${sirCum.ultimo?`<span style="font-size:10px;color:#aaa;margin-left:4px">· ultimo dato ${sirCum.ultimo}</span>`:""}
-    </div>` : "";
-    const cards = altriEntries.map(([l,v])=>
-      `<div class="cum-card"><div class="cum-label">${l}</div><div class="cum-val">${v.toFixed(1)}<span class="cum-unit"> mm</span></div></div>`
-    ).join("");
+  if(sirData){
+    const oggi=sirData.periodi["Oggi"];
+    const oggiHtml=oggi!=null?`
+      <div class="oggi-row">
+        <span class="oggi-label">Oggi (cum. da 00.00)</span>
+        <span class="oggi-val">${oggi.toFixed(1)}</span>
+        <span class="oggi-unit">mm</span>
+        ${sirData.ultimo?`<span class="oggi-ts">ore ${sirData.ultimo}</span>`:""}
+      </div>`:"";
+
+    // Tabella comparativa
+    const periodi=[
+      {label:"1 giorno", sir:sirData.periodi["1 giorno"], era5:era5Cum["1 giorno"]},
+      {label:"2 giorni", sir:sirData.periodi["2 giorni"], era5:era5Cum["2 giorni"]},
+      {label:"5 giorni", sir:sirData.periodi["5 giorni"], era5:era5Cum["5 giorni"]},
+      {label:"7 giorni", sir:sirData.periodi["7 giorni"], era5:era5Cum["7 giorni"]},
+      {label:"10 giorni",sir:sirData.periodi["10 giorni"],era5:era5Cum["10 giorni"]},
+      {label:"15 giorni",sir:sirData.periodi["15 giorni"],era5:era5Cum["15 giorni"]},
+      {label:"30 giorni",sir:sirData.periodi["30 giorni"],era5:era5Cum["30 giorni"]},
+    ].filter(p=>p.sir!=null||p.era5!=null);
+
+    const rows=periodi.map(p=>{
+      const s=p.sir!=null?p.sir.toFixed(1):"–";
+      const e=p.era5!=null?p.era5.toFixed(1):"–";
+      let diff="–",cls="diff-zero";
+      if(p.sir!=null&&p.era5!=null){
+        const d=p.sir-p.era5;
+        diff=(d>0?"+":"")+d.toFixed(1)+" mm";
+        cls=d>0.5?"diff-pos":d<-0.5?"diff-neg":"diff-zero";
+      }
+      return`<tr>
+        <td>${p.label}</td>
+        <td style="color:#0F6E56;font-weight:700">${s}</td>
+        <td style="color:#185fa5">${e}</td>
+        <td class="${cls}">${diff}</td>
+      </tr>`;
+    }).join("");
+
     sirHtml=`<div class="sir-block">
-      <div class="sir-block-head">
-        <span class="sir-block-title">📡 SIR – Dati ufficiali</span>
-        <span class="sir-block-ref" style="font-size:9px">${sirCum.ref.slice(0,50)}</span>
+      <div class="sir-head">
+        <span class="sir-title">📡 SIR – Dati ufficiali</span>
+        <span class="sir-ref">${sirData.ref.replace("Precipitazioni giornaliere [mm] riferite al","").trim().slice(0,30)}</span>
       </div>
       ${oggiHtml}
-      <div class="cum-grid">${cards}</div>
+      <table class="cmp-table">
+        <thead><tr><th>Periodo</th><th>SIR (mm)</th><th>ERA5 (mm)</th><th>Scarto</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
     </div>`;
   }
 
+  /* ── Aggregazione settimanale se >60gg ── */
   let dG=dati,lG=dati.map(r=>fmtD(r.data).slice(0,5));
   if(dati.length>60){
     const sw={};
-    dati.forEach(r=>{const d=new Date(r.data),l=new Date(d);l.setDate(d.getDate()-d.getDay()+1);const k=l.toISOString().split("T")[0];if(!sw[k])sw[k]={data:k,rain_mm:0};sw[k].rain_mm=+(sw[k].rain_mm+r.rain_mm).toFixed(1);});
+    dati.forEach(r=>{
+      const d=new Date(r.data),l=new Date(d);
+      l.setDate(d.getDate()-d.getDay()+1);
+      const k=l.toISOString().split("T")[0];
+      if(!sw[k])sw[k]={data:k,rain_mm:0};
+      sw[k].rain_mm=+(sw[k].rain_mm+r.rain_mm).toFixed(1);
+    });
     dG=Object.values(sw).sort((a,b)=>a.data.localeCompare(b.data));
     lG=dG.map(r=>`S.${fmtD(r.data).slice(0,5)}`);
   }
+  const vals=dG.map(r=>r.rain_mm);
 
   const sirUrl=`https://www.sir.toscana.it/monitoraggio/dettaglio.php?id=${s.codice}&title=${encodeURIComponent(s.nome)}&type=pluvio_men`;
 
   document.getElementById("pb").innerHTML=`
     ${sirHtml}
     <div class="era-block">
-      <div class="sec"><span>📊 ERA5 · ${fmtD(inizio)} → ${fmtD(fine)}</span><span style="color:#aaa;font-size:9px">${dati.length} gg</span></div>
+      <div class="sec">
+        <span>📊 ERA5 – ${fmtD(inizio)} → ${fmtD(fine)}</span>
+        <span style="color:#aaa;font-size:9px">${dati.length} gg</span>
+      </div>
       <div class="sg">
         <div class="sc"><div class="sl">Totale</div><div class="sv">${total.toFixed(1)}<span class="su"> mm</span></div></div>
         <div class="sc"><div class="sl">Max giornaliero</div><div class="sv">${mx.rain_mm.toFixed(1)}<span class="su"> mm</span></div></div>
@@ -325,22 +462,23 @@ function renderPanel(s,dati,inizio,fine,sirCum){
         <div class="sc"><div class="sl">Media</div><div class="sv">${avg.toFixed(1)}<span class="su"> mm/g</span></div></div>
       </div>
       <div class="cw"><canvas id="rc"></canvas></div>
-      <div class="sec">Dati giornalieri</div>
+      <div class="sec">Dati giornalieri ERA5</div>
       <table class="dt">
         <thead><tr><th>Data</th><th>Prec.</th><th>Intensità</th></tr></thead>
         <tbody id="tb"></tbody>
       </table>
       <div class="br">
-        <button class="btn bxl" onclick="esXls()">⬇ Excel</button>
+        <button class="btn bxl" onclick="esXls()">⬇ Excel (SIR + ERA5)</button>
         <button class="btn bgr" onclick="esCsv()">CSV</button>
         <button class="btn bgr" onclick="esJson()">JSON</button>
       </div>
       <div class="sn">
-        ERA5 ECMWF: <a href="https://open-meteo.com" target="_blank">open-meteo.com</a>
-        &nbsp;·&nbsp; <a href="${sirUrl}" target="_blank">↗ Grafico ufficiale SIR</a>
+        ERA5: <a href="https://open-meteo.com" target="_blank">open-meteo.com</a> (ECMWF) ·
+        <a href="${sirUrl}" target="_blank">↗ Grafico SIR</a>
       </div>
     </div>`;
 
+  /* Tabella giornaliera */
   const tb=document.getElementById("tb");
   [...dati].reverse().slice(0,60).forEach(r=>{
     const{l,c}=intens(r.rain_mm);const tr=document.createElement("tr");
@@ -348,7 +486,7 @@ function renderPanel(s,dati,inizio,fine,sirCum){
     tb.appendChild(tr);
   });
 
-  const vals=dG.map(r=>r.rain_mm);
+  /* Grafico */
   if(chart){chart.destroy();chart=null;}
   chart=new Chart(document.getElementById("rc"),{
     type:"bar",
@@ -356,7 +494,8 @@ function renderPanel(s,dati,inizio,fine,sirCum){
       backgroundColor:vals.map(v=>v>15?"rgba(155,34,38,.75)":v>5?"rgba(29,158,117,.75)":v>0?"rgba(50,102,173,.6)":"rgba(200,198,188,.3)"),
       borderWidth:0,borderRadius:3}]},
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${(+c.raw).toFixed(1)} mm – ${intens(c.raw).l}`}}},
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:c=>`${(+c.raw).toFixed(1)} mm – ${intens(c.raw).l}`}}},
       scales:{
         x:{grid:{display:false},ticks:{font:{size:9},maxRotation:45,autoSkip:true,maxTicksLimit:16}},
         y:{beginAtZero:true,ticks:{font:{size:9},callback:v=>v+"mm"},grid:{color:"rgba(0,0,0,.05)"}}
@@ -371,41 +510,78 @@ function showPH(s){
     <div class="ph-name">${s.nome}</div>
     <div class="ph-meta">${s.comune} · ${s.provincia} · ${parseFloat(s.quota||0).toFixed(0)} m s.l.m. · <span style="color:#aaa">${s.codice}</span></div>
     <div class="ph-links">
-      <span class="pill pill-sir">📡 SIR ufficiale</span>
+      <span class="pill pill-sir">📡 SIR</span>
       <span class="pill pill-om">📊 ERA5 ECMWF</span>
       <a class="pill pill-ext" href="${sirUrl}" target="_blank">↗ Grafico SIR</a>
     </div>`;
 }
 
+/* ── Export Excel (3 fogli: SIR+ERA5 confronto, ERA5 giornaliero, riepilogo) ── */
 function esXls(){
   if(!curDati)return;
-  const{stazione:s,dati,inizio,fine}=curDati;
-  const rows=dati.map(r=>{const{l}=intens(r.rain_mm);return{
-    "Data":fmtD(r.data),"Data ISO":r.data,"Precipitazione (mm)":r.rain_mm,
-    "Intensità":l,"Fonte":"Open-Meteo ERA5","Codice":s.codice,"Stazione":s.nome,
-    "Comune":s.comune,"Provincia":s.provincia,"Quota (m)":parseFloat(s.quota||0).toFixed(0),
-    "Lat":s.lat,"Lng":s.lng};});
+  const{stazione:s,dati,datiAll,inizio,fine}=curDati;
+  const sirData=cercaSIR(s);
+  const era5Cum=calcolaERA5Cumulati(datiAll);
+
+  const wb=XLSX.utils.book_new();
+
+  /* Foglio 1: Confronto SIR vs ERA5 cumulati */
+  const confronto=[];
+  if(sirData){
+    confronto.push({"Fonte":"SIR","Periodo":"Oggi (da 00.00)","Valore (mm)":sirData.periodi["Oggi"]??null,"Riferimento":sirData.ultimo});
+    CUM_PERIODS.filter(p=>p.days>0).forEach(({label,days})=>{
+      const sir=sirData.periodi[label]??null;
+      const era=era5Cum[label]??null;
+      const diff=(sir!=null&&era!=null)?+(sir-era).toFixed(1):null;
+      confronto.push({
+        "Periodo":label,
+        "SIR (mm)":sir,
+        "ERA5 (mm)":era,
+        "Scarto SIR-ERA5 (mm)":diff,
+        "Scarto %":sir&&era?+(((sir-era)/era)*100).toFixed(1):null
+      });
+    });
+    confronto.push({});
+    confronto.push({"Periodo":"Riferimento SIR","SIR (mm)":sirData.ref});
+    confronto.push({"Periodo":"Aggiornamento SIR","SIR (mm)":pluvioMen?.aggiornato||"–"});
+  } else {
+    confronto.push({"Nota":"Dati SIR non disponibili per questa stazione nel dataset corrente"});
+  }
+  const ws1=XLSX.utils.json_to_sheet(confronto);
+  ws1["!cols"]=[{wch:18},{wch:14},{wch:14},{wch:16},{wch:14}];
+  XLSX.utils.book_append_sheet(wb,ws1,"SIR vs ERA5");
+
+  /* Foglio 2: ERA5 giornaliero */
+  const era5rows=dati.map(r=>{const{l}=intens(r.rain_mm);return{
+    "Data":fmtD(r.data),"Data ISO":r.data,
+    "Precipitazione (mm)":r.rain_mm,"Intensità":l,
+    "Fonte":"Open-Meteo ERA5"
+  };});
+  const ws2=XLSX.utils.json_to_sheet(era5rows);
+  ws2["!cols"]=[{wch:12},{wch:12},{wch:18},{wch:14},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,ws2,"ERA5 giornaliero");
+
+  /* Foglio 3: Riepilogo stazione */
   const total=dati.reduce((a,b)=>a+b.rain_mm,0);
   const mx=dati.reduce((a,b)=>a.rain_mm>b.rain_mm?a:b,{rain_mm:0,data:"–"});
   const rie=[
-    {Parametro:"Stazione",Valore:s.nome},{Parametro:"Codice",Valore:s.codice},
+    {Parametro:"Stazione",Valore:s.nome},{Parametro:"Codice SIR",Valore:s.codice},
     {Parametro:"Comune",Valore:s.comune},{Parametro:"Provincia",Valore:s.provincia},
     {Parametro:"Quota (m s.l.m.)",Valore:parseFloat(s.quota||0).toFixed(0)},
-    {Parametro:"Periodo",Valore:`${fmtD(inizio)} – ${fmtD(fine)}`},
-    {Parametro:"Totale (mm)",Valore:total.toFixed(1)},
-    {Parametro:"Max giornaliero (mm)",Valore:mx.rain_mm.toFixed(1)},
+    {Parametro:"Latitudine",Valore:s.lat},{Parametro:"Longitudine",Valore:s.lng},
+    {Parametro:"Periodo ERA5",Valore:`${fmtD(inizio)} – ${fmtD(fine)}`},
+    {Parametro:"Totale ERA5 (mm)",Valore:total.toFixed(1)},
+    {Parametro:"Max giornaliero ERA5 (mm)",Valore:mx.rain_mm.toFixed(1)},
     {Parametro:"Data max",Valore:fmtD(mx.data)},
     {Parametro:"Giorni piovosi",Valore:dati.filter(x=>x.rain_mm>0).length},
-    {Parametro:"Media giornaliera (mm)",Valore:(total/dati.length).toFixed(1)},
-    {Parametro:"Fonte",Valore:"Open-Meteo ERA5 (ECMWF)"},
+    {Parametro:"Media giornaliera ERA5 (mm)",Valore:dati.length?(total/dati.length).toFixed(1):"–"},
+    {Parametro:"Fonte ERA5","Valore":"Open-Meteo ERA5 (ECMWF reanalysis)"},
+    {Parametro:"Fonte SIR","Valore":"SIR Regione Toscana (misura diretta)"},
     {Parametro:"Generato il",Valore:new Date().toLocaleString("it-IT")},
   ];
-  const wb=XLSX.utils.book_new();
-  const ws=XLSX.utils.json_to_sheet(rows);
-  ws["!cols"]=[{wch:12},{wch:12},{wch:18},{wch:14},{wch:14},{wch:14},{wch:22},{wch:18},{wch:10},{wch:8},{wch:10},{wch:10}];
-  XLSX.utils.book_append_sheet(wb,ws,"Dati giornalieri ERA5");
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rie),"Riepilogo");
-  XLSX.writeFile(wb,`SIR_ERA5_${s.codice}_${inizio}_${fine}.xlsx`);
+
+  XLSX.writeFile(wb,`SIR_${s.codice}_${inizio}_${fine}.xlsx`);
 }
 
 function esCsv(){
@@ -421,8 +597,11 @@ function esCsv(){
 function esJson(){
   if(!curDati)return;
   const{stazione,dati,inizio,fine}=curDati;
-  dl(JSON.stringify({stazione,fonte:"Open-Meteo ERA5",inizio,fine,generato:new Date().toISOString(),totale:dati.length,dati},null,2),
-    `SIR_ERA5_${stazione.codice}_${inizio}_${fine}.json`,"application/json");
+  const sir=cercaSIR(stazione);
+  dl(JSON.stringify({stazione,fonte_era5:"Open-Meteo ERA5",fonte_sir:"SIR Regione Toscana",
+    inizio,fine,generato:new Date().toISOString(),
+    sir_cumulati:sir?.periodi||null,era5_giornaliero:dati},null,2),
+    `SIR_${stazione.codice}_${inizio}_${fine}.json`,"application/json");
 }
 
 function dl(c,n,t){
