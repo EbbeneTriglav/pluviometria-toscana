@@ -1,10 +1,6 @@
 {
-  "ultimo_aggiornamento": "2026-05-15T20:31:41.273858+00:00",
-  "files_disponibili": [
-    "pluvio_men.json",
-    "stato.json",
-    "pluvio.json",
-    "stazioni.json"
-  ],
-  "stazioni_totali": 0
+  "ultimo_aggiornamento": "2026-05-15T21:27:00.818786+00:00",
+  "stazioni_totali": 0,
+  "pluvio_men": 376,
+  "riferimento": "Precipitazioni giornaliere [mm] riferite al 15/05/2026 22.15 (ora solare)."
 }
