@@ -168,19 +168,19 @@ let activeMarker=null, chart=null, currentData=null;
 async function loadStations() {
   let stazioni = [];
 
-  // 1. Prova prima il JSON scraped da GitHub Actions (aggiornato ogni ora)
-  setMsg("Caricamento stazioni da GitHub Actions…");
+  // 1. Prova stazioni.json da GitHub Actions
+  setMsg("Caricamento stazioni SIR…");
   const cached = await fetchGitHub("stazioni.json");
   if (cached?.stazioni?.length > 0) {
     stazioni = cached.stazioni;
     const age = cached.aggiornato
-      ? new Date(cached.aggiornato).toLocaleString("it-IT")
-      : "–";
-    document.getElementById("stat-fonte").textContent = `Scraping: ${age}`;
-    setMsg(`✅ ${stazioni.length} stazioni da GitHub Actions`);
-  } else {
-    // 2. Fallback: GeoJSON SIR via Worker
-    setMsg("GitHub Actions non disponibile, carico da SIR via Worker…");
+      ? new Date(cached.aggiornato).toLocaleString("it-IT") : "–";
+    document.getElementById("stat-fonte").textContent = `Aggiornato: ${age}`;
+  }
+
+  // 2. Se stazioni vuote, usa Worker SIR GeoJSON
+  if (stazioni.length === 0) {
+    setMsg("Caricamento stazioni via Worker…");
     try {
       const r = await fetch(proxySIR(SIR_STATIONS));
       if (!r.ok) throw new Error("HTTP " + r.status);
@@ -190,6 +190,11 @@ async function loadStations() {
       setMsg(`❌ Impossibile caricare stazioni: ${e.message}`);
       return;
     }
+  }
+
+  if (stazioni.length === 0) {
+    setMsg("❌ Nessuna stazione trovata. Riprova tra qualche minuto.");
+    return;
   }
   document.getElementById("overlay").style.display = "none";
   document.getElementById("stat-count").textContent = stazioni.length;
