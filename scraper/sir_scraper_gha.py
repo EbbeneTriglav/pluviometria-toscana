@@ -165,8 +165,14 @@ def scarica_stazioni():
                     continue
                 consist = props.get("Consistenza", {})
                 anni = []
-                for k, v in consist.items():
-                    if "PLUVIOMETRIA" in k and "9-9" in k:
+                if isinstance(consist, dict):
+                    items = consist.items()
+                elif isinstance(consist, list):
+                    items = [(item.get("tipo", ""), item) for item in consist]
+                else:
+                    items = []
+                for k, v in items:
+                    if "PLUVIOMETRIA" in str(k) and "9-9" in str(k):
                         anni = [a for grp in (v.get("Anni") or []) for a in grp]
                         break
                 if not anni or ("2026" not in anni and "2025" not in anni):
