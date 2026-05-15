@@ -1,1 +1,10 @@
-{"ultimo_aggiornamento":"in attesa della prima esecuzione","stazioni_totali":0}
+{
+  "ultimo_aggiornamento": "2026-05-15T20:13:33.298264+00:00",
+  "files_disponibili": [
+    "pluvio_men.json",
+    "stato.json",
+    "pluvio.json",
+    "stazioni.json"
+  ],
+  "stazioni_totali": 0
+}
