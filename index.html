@@ -118,15 +118,30 @@ table.dt td{padding:5px 6px;border-bottom:1px solid #f0efe9;color:#1c1b19}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 /* ════════════════════════════════════════════════════════════
-   ⚙️  CONFIGURAZIONE — aggiorna WORKER_URL dopo il deploy
+   ⚙️  CONFIGURAZIONE
    ════════════════════════════════════════════════════════════ */
-const WORKER_URL = "https://sir-proxy.riccardo-giusti-gst.workers.dev";
+const WORKER_URL   = "https://sir-proxy.riccardo-giusti-gst.workers.dev";
 const SIR_STATIONS = "http://www.sir.toscana.it/archivio/dati.php?D=json_stations";
 const OPEN_METEO   = "https://api.open-meteo.com/v1/forecast";
+
+// URL base dei dati scraped da GitHub Actions
+// I file JSON vengono aggiornati automaticamente ogni ora
+const GITHUB_REPO  = "ebbenetriglav/pluviometria-toscana";
+const DATA_BASE    = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/data`;
 
 /* Funzione proxy: usa il Worker Cloudflare per le chiamate SIR */
 function proxySIR(url) {
   return `${WORKER_URL}?url=${encodeURIComponent(url)}`;
+}
+
+/* Carica JSON da GitHub (dati scraped aggiornati ogni ora) */
+async function fetchGitHub(filename) {
+  const url = `${DATA_BASE}/${filename}?t=${Date.now()}`;
+  try {
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -151,18 +166,31 @@ let activeMarker=null, chart=null, currentData=null;
    CARICAMENTO STAZIONI
    ════════════════════════════════════════════════════════════ */
 async function loadStations() {
-  setMsg("Caricamento stazioni SIR via Cloudflare Worker…");
-  let geojson;
-  try {
-    const r = await fetch(proxySIR(SIR_STATIONS));
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    geojson = await r.json();
-  } catch(e) {
-    setMsg(`❌ Worker non raggiungibile: ${e.message}<br>Verifica che WORKER_URL sia configurato correttamente.`);
-    return;
-  }
+  let stazioni = [];
 
-  const stazioni = parseGeoJSON(geojson);
+  // 1. Prova prima il JSON scraped da GitHub Actions (aggiornato ogni ora)
+  setMsg("Caricamento stazioni da GitHub Actions…");
+  const cached = await fetchGitHub("stazioni.json");
+  if (cached?.stazioni?.length > 0) {
+    stazioni = cached.stazioni;
+    const age = cached.aggiornato
+      ? new Date(cached.aggiornato).toLocaleString("it-IT")
+      : "–";
+    document.getElementById("stat-fonte").textContent = `Scraping: ${age}`;
+    setMsg(`✅ ${stazioni.length} stazioni da GitHub Actions`);
+  } else {
+    // 2. Fallback: GeoJSON SIR via Worker
+    setMsg("GitHub Actions non disponibile, carico da SIR via Worker…");
+    try {
+      const r = await fetch(proxySIR(SIR_STATIONS));
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const geojson = await r.json();
+      stazioni = parseGeoJSON(geojson);
+    } catch(e) {
+      setMsg(`❌ Impossibile caricare stazioni: ${e.message}`);
+      return;
+    }
+  }
   document.getElementById("overlay").style.display = "none";
   document.getElementById("stat-count").textContent = stazioni.length;
 
@@ -279,27 +307,36 @@ async function onStation(s, m) {
 
   setPH(s);
   document.getElementById("pb").innerHTML =
-    `<div class="panel-loader"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati da SIR…</span></div>`;
+    `<div class="panel-loader"><div class="spinner" style="width:16px;height:16px;border-width:2px"></div><span>Recupero dati…</span></div>`;
 
   const {inizio, fine} = dateRange(7);
-  const anno = new Date().getFullYear();
+  let dati = null, fonte = null;
 
-  // Prova SIR prima
-  let dati = await fetchDatiSIR(s, anno);
-  let fonte = "SIR";
-
-  if (dati && dati.length > 0) {
-    // Filtra per il periodo richiesto
-    dati = dati.filter(r => r.data >= inizio && r.data <= fine);
+  // 1. Prova dati scraped da GitHub Actions (reali dal SIR)
+  const scraped = await fetchGitHub("pluvio_men.json");
+  if (scraped?.dati) {
+    const righe = scraped.dati.filter(r =>
+      r.codice === s.codice ||
+      (r.nome && s.nome && r.nome.toLowerCase().includes(s.nome.toLowerCase().slice(0,6)))
+    );
+    if (righe.length > 0) {
+      // Converti il formato scraping in formato grafico
+      dati = righe.map(r => ({
+        data:    r["Data"] || r["data"] || Object.values(r)[1] || "–",
+        rain_mm: parseFloat(Object.values(r).find(v => v && !isNaN(parseFloat(v))) || 0),
+        flag:    "SIR"
+      })).filter(r => r.data !== "–").slice(-7);
+      fonte = "SIR (scraping GHA)";
+    }
   }
 
+  // 2. Fallback Open-Meteo ERA5
   if (!dati || dati.length === 0) {
-    // Fallback Open-Meteo
     try {
       dati = await fetchDatiOpenMeteo(s, inizio, fine);
-      fonte = "Open-Meteo";
+      fonte = "Open-Meteo ERA5";
     } catch(e) {
-      document.getElementById("pb").innerHTML = `<div style="padding:20px 0;font-size:12px;color:#c00">Errore nel recupero dati.<br>${e.message}</div>`;
+      document.getElementById("pb").innerHTML = `<div style="padding:20px 0;font-size:12px;color:#c00">Errore dati: ${e.message}</div>`;
       return;
     }
   }
@@ -448,10 +485,8 @@ function setMsg(msg) {
 /* ════════════════════════════════════════════════════════════
    AVVIO
    ════════════════════════════════════════════════════════════ */
-if (WORKER_URL.includes("TUO_NOME")) {
-  setMsg("⚠️ Configura WORKER_URL nell'HTML con l'URL del tuo Cloudflare Worker.<br>Vedi README per le istruzioni.");
-} else {
-  loadStations().catch(e => setMsg(`❌ Errore: ${e.message}`));
+
+loadStations().catch(e => setMsg(`❌ Errore: ${e.message}`));
 }
 </script>
 </body>
