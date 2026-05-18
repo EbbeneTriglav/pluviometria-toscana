@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-05-18T06:00:51.769620+00:00",
+  "aggiornato": "2026-05-18T10:52:50.916977+00:00",
   "totale": 384,
   "stazioni": [
     {
@@ -2478,15 +2478,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS11000513",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "244.00",
-      "lat": 43.479562,
-      "lng": 10.347686
-    },
-    {
       "codice": "TOS10001970",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2494,6 +2485,15 @@
       "quota": "18.00",
       "lat": 43.456633,
       "lng": 10.370241
+    },
+    {
+      "codice": "TOS11000513",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "244.00",
+      "lat": 43.479562,
+      "lng": 10.347686
     },
     {
       "codice": "TOS01001284",
