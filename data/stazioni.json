@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-05-20T01:55:10.502254+00:00",
+  "aggiornato": "2026-05-20T05:55:30.931054+00:00",
   "totale": 384,
   "stazioni": [
     {
@@ -2010,15 +2010,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS30355400",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1530.00",
-      "lat": 44.210107,
-      "lng": 10.48871
-    },
-    {
       "codice": "TOS11000106",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2026,6 +2017,15 @@
       "quota": "1637.00",
       "lat": 44.197079,
       "lng": 10.4867
+    },
+    {
+      "codice": "TOS30355400",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1530.00",
+      "lat": 44.210107,
+      "lng": 10.48871
     },
     {
       "codice": "TOS03003200",
