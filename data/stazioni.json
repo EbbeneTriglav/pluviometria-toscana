@@ -1,6 +1,6 @@
 {
-  "aggiornato": "2026-05-21T12:37:55.518638+00:00",
-  "totale": 384,
+  "aggiornato": "2026-05-21T16:11:03.767664+00:00",
+  "totale": 383,
   "stazioni": [
     {
       "codice": "TOS11000114",
@@ -2172,15 +2172,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS11000014",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "300.00",
-      "lat": 42.635098,
-      "lng": 11.6543
-    },
-    {
       "codice": "TOS07000046",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2188,6 +2179,15 @@
       "quota": "157.00",
       "lat": 42.593492,
       "lng": 11.599649
+    },
+    {
+      "codice": "TOS11000014",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "300.00",
+      "lat": 42.635098,
+      "lng": 11.6543
     },
     {
       "codice": "TOS03001841",
@@ -2478,15 +2478,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS10001970",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "18.00",
-      "lat": 43.456633,
-      "lng": 10.370241
-    },
-    {
       "codice": "TOS11000513",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2494,6 +2485,15 @@
       "quota": "244.00",
       "lat": 43.479562,
       "lng": 10.347686
+    },
+    {
+      "codice": "TOS10001970",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "18.00",
+      "lat": 43.456633,
+      "lng": 10.370241
     },
     {
       "codice": "TOS01001284",
@@ -2602,15 +2602,6 @@
       "quota": "522.00",
       "lat": 42.786385,
       "lng": 11.505724
-    },
-    {
-      "codice": "TOS10002530",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "482.00",
-      "lat": 43.011206,
-      "lng": 11.167608
     },
     {
       "codice": "TOS03002531",
