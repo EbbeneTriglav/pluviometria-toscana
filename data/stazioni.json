@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-05-24T01:52:58.242204+00:00",
+  "aggiornato": "2026-05-24T05:50:53.946384+00:00",
   "totale": 383,
   "stazioni": [
     {
@@ -2145,15 +2145,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS19000702",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "434.00",
-      "lat": 43.669029,
-      "lng": 12.042798
-    },
-    {
       "codice": "TOS11000040",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2161,6 +2152,15 @@
       "quota": "750.00",
       "lat": 43.673953,
       "lng": 12.101949
+    },
+    {
+      "codice": "TOS19000702",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "434.00",
+      "lat": 43.669029,
+      "lng": 12.042798
     },
     {
       "codice": "TOS01000544",
@@ -2478,15 +2478,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS10001970",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "18.00",
-      "lat": 43.456633,
-      "lng": 10.370241
-    },
-    {
       "codice": "TOS11000513",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2494,6 +2485,15 @@
       "quota": "244.00",
       "lat": 43.479562,
       "lng": 10.347686
+    },
+    {
+      "codice": "TOS10001970",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "18.00",
+      "lat": 43.456633,
+      "lng": 10.370241
     },
     {
       "codice": "TOS01001284",
