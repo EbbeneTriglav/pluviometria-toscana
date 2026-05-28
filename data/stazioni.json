@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-05-28T05:57:29.784784+00:00",
+  "aggiornato": "2026-05-28T09:49:43.223178+00:00",
   "totale": 383,
   "stazioni": [
     {
@@ -2010,15 +2010,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS30355400",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1530.00",
-      "lat": 44.210107,
-      "lng": 10.48871
-    },
-    {
       "codice": "TOS11000106",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2026,6 +2017,15 @@
       "quota": "1637.00",
       "lat": 44.197079,
       "lng": 10.4867
+    },
+    {
+      "codice": "TOS30355400",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1530.00",
+      "lat": 44.210107,
+      "lng": 10.48871
     },
     {
       "codice": "TOS03003200",
@@ -2478,15 +2478,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS10001970",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "18.00",
-      "lat": 43.456633,
-      "lng": 10.370241
-    },
-    {
       "codice": "TOS11000513",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2494,6 +2485,15 @@
       "quota": "244.00",
       "lat": 43.479562,
       "lng": 10.347686
+    },
+    {
+      "codice": "TOS10001970",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "18.00",
+      "lat": 43.456633,
+      "lng": 10.370241
     },
     {
       "codice": "TOS01001284",
