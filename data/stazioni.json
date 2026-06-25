@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-06-25T08:45:08.277377+00:00",
+  "aggiornato": "2026-06-25T11:30:14.789878+00:00",
   "totale": 383,
   "stazioni": [
     {
@@ -2010,15 +2010,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS11000106",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1637.00",
-      "lat": 44.197079,
-      "lng": 10.4867
-    },
-    {
       "codice": "TOS30355400",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2026,6 +2017,15 @@
       "quota": "1530.00",
       "lat": 44.210107,
       "lng": 10.48871
+    },
+    {
+      "codice": "TOS11000106",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1637.00",
+      "lat": 44.197079,
+      "lng": 10.4867
     },
     {
       "codice": "TOS03003200",
@@ -2172,15 +2172,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS07000046",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "157.00",
-      "lat": 42.593492,
-      "lng": 11.599649
-    },
-    {
       "codice": "TOS11000014",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2188,6 +2179,15 @@
       "quota": "300.00",
       "lat": 42.635098,
       "lng": 11.6543
+    },
+    {
+      "codice": "TOS07000046",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "157.00",
+      "lat": 42.593492,
+      "lng": 11.599649
     },
     {
       "codice": "TOS03001841",
