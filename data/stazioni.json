@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-09T20:16:36.314624+00:00",
+  "aggiornato": "2026-08-09T21:18:54.846484+00:00",
   "totale": 383,
   "stazioni": [
     {
@@ -2010,15 +2010,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS11000106",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1637.00",
-      "lat": 44.197079,
-      "lng": 10.4867
-    },
-    {
       "codice": "TOS30355400",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2026,6 +2017,15 @@
       "quota": "1530.00",
       "lat": 44.210107,
       "lng": 10.48871
+    },
+    {
+      "codice": "TOS11000106",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1637.00",
+      "lat": 44.197079,
+      "lng": 10.4867
     },
     {
       "codice": "TOS03003200",
@@ -2172,15 +2172,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS11000014",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "300.00",
-      "lat": 42.635098,
-      "lng": 11.6543
-    },
-    {
       "codice": "TOS07000046",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2188,6 +2179,15 @@
       "quota": "157.00",
       "lat": 42.593492,
       "lng": 11.599649
+    },
+    {
+      "codice": "TOS11000014",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "300.00",
+      "lat": 42.635098,
+      "lng": 11.6543
     },
     {
       "codice": "TOS03001841",
@@ -2478,15 +2478,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS11000513",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "244.00",
-      "lat": 43.479562,
-      "lng": 10.347686
-    },
-    {
       "codice": "TOS10001970",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2494,6 +2485,15 @@
       "quota": "18.00",
       "lat": 43.456633,
       "lng": 10.370241
+    },
+    {
+      "codice": "TOS11000513",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "244.00",
+      "lat": 43.479562,
+      "lng": 10.347686
     },
     {
       "codice": "TOS01001284",
