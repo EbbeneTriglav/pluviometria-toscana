@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-10T14:09:09.990988+00:00",
+  "aggiornato": "2026-08-10T15:46:05.097023+00:00",
   "totale": 383,
   "stazioni": [
     {
@@ -2145,15 +2145,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS11000040",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "750.00",
-      "lat": 43.673953,
-      "lng": 12.101949
-    },
-    {
       "codice": "TOS19000702",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2161,6 +2152,15 @@
       "quota": "434.00",
       "lat": 43.669029,
       "lng": 12.042798
+    },
+    {
+      "codice": "TOS11000040",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "750.00",
+      "lat": 43.673953,
+      "lng": 12.101949
     },
     {
       "codice": "TOS01000544",
