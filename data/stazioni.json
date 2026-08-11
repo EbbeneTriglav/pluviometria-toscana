@@ -1,6 +1,6 @@
 {
-  "aggiornato": "2026-08-11T07:59:47.453264+00:00",
-  "totale": 383,
+  "aggiornato": "2026-08-11T08:53:08.292655+00:00",
+  "totale": 402,
   "stazioni": [
     {
       "codice": "TOS11000114",
@@ -37,6 +37,15 @@
       "quota": "950.00",
       "lat": 44.023266,
       "lng": 11.02527
+    },
+    {
+      "codice": "TOS10002580",
+      "nome": "Acquisti",
+      "comune": "Grosseto",
+      "provincia": "GR",
+      "quota": "5.00",
+      "lat": 42.846853,
+      "lng": 11.060116
     },
     {
       "codice": "TOS11000077",
@@ -417,6 +426,15 @@
       "lng": 10.281031
     },
     {
+      "codice": "TOS10000115",
+      "nome": "Camaiore I Frati",
+      "comune": "Camaiore",
+      "provincia": "LU",
+      "quota": "27.00",
+      "lat": 43.938297,
+      "lng": 10.292711
+    },
+    {
       "codice": "TOS01000611",
       "nome": "Camaldoli",
       "comune": "Poppi",
@@ -696,6 +714,15 @@
       "lng": 11.52671
     },
     {
+      "codice": "TOS10001740",
+      "nome": "Castelfalfi",
+      "comune": "Montaione",
+      "provincia": "FI",
+      "quota": "270.00",
+      "lat": 43.547379,
+      "lng": 10.864917
+    },
+    {
       "codice": "TOS01004971",
       "nome": "Castelfiorentino",
       "comune": "Castelfiorentino",
@@ -786,6 +813,15 @@
       "lng": 11.617707
     },
     {
+      "codice": "TOS10002585",
+      "nome": "Castiglione della Pescaia",
+      "comune": "Grosseto",
+      "provincia": "GR",
+      "quota": "1.00",
+      "lat": 42.761868,
+      "lng": 10.919103
+    },
+    {
       "codice": "TOS01000911",
       "nome": "Cavallina",
       "comune": "Barberino di Mugello",
@@ -856,6 +892,15 @@
       "quota": "246.00",
       "lat": 43.308447,
       "lng": 11.824883
+    },
+    {
+      "codice": "TOS10000681",
+      "nome": "Chianciano S. Elena",
+      "comune": "Chianciano Terme",
+      "provincia": "SI",
+      "quota": "490.00",
+      "lat": 43.056323,
+      "lng": 11.820214
     },
     {
       "codice": "TOS02000515",
@@ -1263,6 +1308,15 @@
       "lng": 11.456191
     },
     {
+      "codice": "TOS10000250",
+      "nome": "Isola Santa",
+      "comune": "Stazzema",
+      "provincia": "LU",
+      "quota": "550.00",
+      "lat": 44.065802,
+      "lng": 10.314774
+    },
+    {
       "codice": "TOS01001269",
       "nome": "La Ferruccia",
       "comune": "Agliana",
@@ -1270,6 +1324,15 @@
       "quota": "40.00",
       "lat": 43.884551,
       "lng": 11.003848
+    },
+    {
+      "codice": "TOS10002860",
+      "nome": "La Foce",
+      "comune": "Pienza",
+      "provincia": "SI",
+      "quota": "563.00",
+      "lat": 43.024175,
+      "lng": 11.780055
     },
     {
       "codice": "TOS01001679",
@@ -1387,6 +1450,15 @@
       "quota": "0.00",
       "lat": 43.546256,
       "lng": 10.299632
+    },
+    {
+      "codice": "TOS10000511",
+      "nome": "Lucca (Orto Botanico)",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "16.00",
+      "lat": 43.841821,
+      "lng": 10.511097
     },
     {
       "codice": "TOS02000512",
@@ -1884,6 +1956,15 @@
       "lng": 11.531259
     },
     {
+      "codice": "TOS10001276",
+      "nome": "Olmi",
+      "comune": "Quarrata",
+      "provincia": "PT",
+      "quota": "39.00",
+      "lat": 43.8632,
+      "lng": 10.992803
+    },
+    {
       "codice": "TOS11000508",
       "nome": "Orbetello",
       "comune": "Orbetello",
@@ -2127,6 +2208,15 @@
       "lng": 11.682147
     },
     {
+      "codice": "TOS10000090",
+      "nome": "Pietrasanta",
+      "comune": "Pietrasanta",
+      "provincia": "LU",
+      "quota": "4.50",
+      "lat": 43.94094,
+      "lng": 10.237099
+    },
+    {
       "codice": "TOS03000091",
       "nome": "Pietrasanta",
       "comune": "Pietrasanta",
@@ -2172,15 +2262,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS11000014",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "300.00",
-      "lat": 42.635098,
-      "lng": 11.6543
-    },
-    {
       "codice": "TOS07000046",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2188,6 +2269,15 @@
       "quota": "157.00",
       "lat": 42.593492,
       "lng": 11.599649
+    },
+    {
+      "codice": "TOS11000014",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "300.00",
+      "lat": 42.635098,
+      "lng": 11.6543
     },
     {
       "codice": "TOS03001841",
@@ -2233,6 +2323,15 @@
       "quota": "82.00",
       "lat": 42.613681,
       "lng": 11.254882
+    },
+    {
+      "codice": "TOS10000290",
+      "nome": "Polla dei Gangheri",
+      "comune": "Gallicano",
+      "provincia": "LU",
+      "quota": "298.00",
+      "lat": 44.050111,
+      "lng": 10.397386
     },
     {
       "codice": "TOS02000075",
@@ -2469,6 +2568,15 @@
       "lng": 10.804013
     },
     {
+      "codice": "TOS10000245",
+      "nome": "Puntato",
+      "comune": "Stazzema",
+      "provincia": "LU",
+      "quota": "970.00",
+      "lat": 44.05358,
+      "lng": 10.294909
+    },
+    {
       "codice": "TOS01005373",
       "nome": "Puretta",
       "comune": "Volterra",
@@ -2611,6 +2719,15 @@
       "quota": "504.00",
       "lat": 43.016277,
       "lng": 11.165185
+    },
+    {
+      "codice": "TOS10002530",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "482.00",
+      "lat": 43.011206,
+      "lng": 11.167608
     },
     {
       "codice": "TOS11000015",
@@ -2818,6 +2935,15 @@
       "quota": "238.00",
       "lat": 43.905951,
       "lng": 10.592988
+    },
+    {
+      "codice": "TOS10000550",
+      "nome": "S. Rossore",
+      "comune": "Pisa",
+      "provincia": "PI",
+      "quota": "3.00",
+      "lat": 43.692783,
+      "lng": 10.344644
     },
     {
       "codice": "TOS11000035",
@@ -3045,6 +3171,15 @@
       "lng": 11.853004
     },
     {
+      "codice": "TOS10001650",
+      "nome": "Stabbia",
+      "comune": "Cerreto Guidi",
+      "provincia": "FI",
+      "quota": "16.00",
+      "lat": 43.787838,
+      "lng": 10.827081
+    },
+    {
       "codice": "TOS01005342",
       "nome": "Stagno",
       "comune": "Collesalvetti",
@@ -3124,6 +3259,15 @@
       "quota": "374.00",
       "lat": 43.571909,
       "lng": 11.16251
+    },
+    {
+      "codice": "TOS10002680",
+      "nome": "Taverne d'Arbia",
+      "comune": "Asciano",
+      "provincia": "SI",
+      "quota": "218.00",
+      "lat": 43.293024,
+      "lng": 11.414919
     },
     {
       "codice": "TOS02000339",
@@ -3223,6 +3367,15 @@
       "quota": "411.00",
       "lat": 42.718304,
       "lng": 11.49098
+    },
+    {
+      "codice": "TOS10002050",
+      "nome": "Vada (Bonifica)",
+      "comune": "Rosignano Marittimo",
+      "provincia": "LI",
+      "quota": "2.00",
+      "lat": 43.326889,
+      "lng": 10.458973
     },
     {
       "codice": "TOS02000191",
@@ -3387,6 +3540,15 @@
       "lng": 10.386128
     },
     {
+      "codice": "TOS10000200",
+      "nome": "Villacollemandina (Diga)",
+      "comune": "Villa Collemandina",
+      "provincia": "LU",
+      "quota": "498.00",
+      "lat": 44.159681,
+      "lng": 10.386719
+    },
+    {
       "codice": "TOS11000100",
       "nome": "Villafranca",
       "comune": "Villafranca in Lunigiana",
@@ -3403,6 +3565,15 @@
       "quota": "365.00",
       "lat": 43.964308,
       "lng": 11.541037
+    },
+    {
+      "codice": "TOS10000490",
+      "nome": "Vinchiana",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "50.00",
+      "lat": 43.918725,
+      "lng": 10.531992
     },
     {
       "codice": "TOS01001371",
