@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-12T20:28:35.294347+00:00",
+  "aggiornato": "2026-08-12T21:31:46.683026+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -2262,15 +2262,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS11000014",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "300.00",
-      "lat": 42.635098,
-      "lng": 11.6543
-    },
-    {
       "codice": "TOS07000046",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2278,6 +2269,15 @@
       "quota": "157.00",
       "lat": 42.593492,
       "lng": 11.599649
+    },
+    {
+      "codice": "TOS11000014",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "300.00",
+      "lat": 42.635098,
+      "lng": 11.6543
     },
     {
       "codice": "TOS03001841",
