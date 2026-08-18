@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-18T00:26:14.309204+00:00",
+  "aggiornato": "2026-08-18T02:07:22.985320+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -2235,15 +2235,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS11000040",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "750.00",
-      "lat": 43.673953,
-      "lng": 12.101949
-    },
-    {
       "codice": "TOS19000702",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2251,6 +2242,15 @@
       "quota": "434.00",
       "lat": 43.669029,
       "lng": 12.042798
+    },
+    {
+      "codice": "TOS11000040",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "750.00",
+      "lat": 43.673953,
+      "lng": 12.101949
     },
     {
       "codice": "TOS01000544",
@@ -2712,15 +2712,6 @@
       "lng": 11.505724
     },
     {
-      "codice": "TOS03002531",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "504.00",
-      "lat": 43.016277,
-      "lng": 11.165185
-    },
-    {
       "codice": "TOS10002530",
       "nome": "Roccastrada",
       "comune": "Roccastrada",
@@ -2728,6 +2719,15 @@
       "quota": "482.00",
       "lat": 43.011206,
       "lng": 11.167608
+    },
+    {
+      "codice": "TOS03002531",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "504.00",
+      "lat": 43.016277,
+      "lng": 11.165185
     },
     {
       "codice": "TOS11000015",
