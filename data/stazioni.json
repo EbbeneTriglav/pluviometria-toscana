@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-22T05:15:26.466803+00:00",
+  "aggiornato": "2026-08-22T06:16:41.780394+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -1452,15 +1452,6 @@
       "lng": 10.299632
     },
     {
-      "codice": "TOS02000512",
-      "nome": "Lucca (Orto Botanico)",
-      "comune": "Lucca",
-      "provincia": "LU",
-      "quota": "16.00",
-      "lat": 43.841864,
-      "lng": 10.51086
-    },
-    {
       "codice": "TOS10000511",
       "nome": "Lucca (Orto Botanico)",
       "comune": "Lucca",
@@ -1468,6 +1459,15 @@
       "quota": "16.00",
       "lat": 43.841821,
       "lng": 10.511097
+    },
+    {
+      "codice": "TOS02000512",
+      "nome": "Lucca (Orto Botanico)",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "16.00",
+      "lat": 43.841864,
+      "lng": 10.51086
     },
     {
       "codice": "TOS03002643",
