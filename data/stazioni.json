@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-23T00:29:11.108484+00:00",
+  "aggiornato": "2026-08-23T02:16:05.843861+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -1452,15 +1452,6 @@
       "lng": 10.299632
     },
     {
-      "codice": "TOS02000512",
-      "nome": "Lucca (Orto Botanico)",
-      "comune": "Lucca",
-      "provincia": "LU",
-      "quota": "16.00",
-      "lat": 43.841864,
-      "lng": 10.51086
-    },
-    {
       "codice": "TOS10000511",
       "nome": "Lucca (Orto Botanico)",
       "comune": "Lucca",
@@ -1468,6 +1459,15 @@
       "quota": "16.00",
       "lat": 43.841821,
       "lng": 10.511097
+    },
+    {
+      "codice": "TOS02000512",
+      "nome": "Lucca (Orto Botanico)",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "16.00",
+      "lat": 43.841864,
+      "lng": 10.51086
     },
     {
       "codice": "TOS03002643",
@@ -2235,15 +2235,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS19000702",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "434.00",
-      "lat": 43.669029,
-      "lng": 12.042798
-    },
-    {
       "codice": "TOS11000040",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2251,6 +2242,15 @@
       "quota": "750.00",
       "lat": 43.673953,
       "lng": 12.101949
+    },
+    {
+      "codice": "TOS19000702",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "434.00",
+      "lat": 43.669029,
+      "lng": 12.042798
     },
     {
       "codice": "TOS01000544",
