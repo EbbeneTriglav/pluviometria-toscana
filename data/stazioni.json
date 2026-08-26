@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-26T06:23:44.644050+00:00",
+  "aggiornato": "2026-08-26T07:34:59.901226+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -2033,8 +2033,8 @@
       "comune": "Civitella Paganico",
       "provincia": "GR",
       "quota": "70.00",
-      "lat": 42.939816,
-      "lng": 11.284651
+      "lat": 42.939714,
+      "lng": 11.284461
     },
     {
       "codice": "TOS02000329",
@@ -2069,8 +2069,8 @@
       "comune": "Civitella Paganico",
       "provincia": "GR",
       "quota": "330.00",
-      "lat": 43.06252,
-      "lng": 11.322537
+      "lat": 43.062319,
+      "lng": 11.322472
     },
     {
       "codice": "TOS03001930",
