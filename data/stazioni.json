@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-04T18:36:06.932600+00:00",
+  "aggiornato": "2026-09-04T21:05:22.303338+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -2262,15 +2262,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS07000046",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "157.00",
-      "lat": 42.593492,
-      "lng": 11.599649
-    },
-    {
       "codice": "TOS11000014",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2278,6 +2269,15 @@
       "quota": "300.00",
       "lat": 42.635098,
       "lng": 11.6543
+    },
+    {
+      "codice": "TOS07000046",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "157.00",
+      "lat": 42.593492,
+      "lng": 11.599649
     },
     {
       "codice": "TOS03001841",
@@ -2712,15 +2712,6 @@
       "lng": 11.505724
     },
     {
-      "codice": "TOS10002530",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "482.00",
-      "lat": 43.011206,
-      "lng": 11.167608
-    },
-    {
       "codice": "TOS03002531",
       "nome": "Roccastrada",
       "comune": "Roccastrada",
@@ -2728,6 +2719,15 @@
       "quota": "504.00",
       "lat": 43.016277,
       "lng": 11.165185
+    },
+    {
+      "codice": "TOS10002530",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "482.00",
+      "lat": 43.011206,
+      "lng": 11.167608
     },
     {
       "codice": "TOS11000015",
