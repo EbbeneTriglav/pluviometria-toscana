@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-06T20:53:15.923088+00:00",
+  "aggiornato": "2026-09-06T22:29:04.175594+00:00",
   "totale": 402,
   "stazioni": [
     {
@@ -1452,15 +1452,6 @@
       "lng": 10.299632
     },
     {
-      "codice": "TOS10000511",
-      "nome": "Lucca (Orto Botanico)",
-      "comune": "Lucca",
-      "provincia": "LU",
-      "quota": "16.00",
-      "lat": 43.841821,
-      "lng": 10.511097
-    },
-    {
       "codice": "TOS02000512",
       "nome": "Lucca (Orto Botanico)",
       "comune": "Lucca",
@@ -1468,6 +1459,15 @@
       "quota": "16.00",
       "lat": 43.841864,
       "lng": 10.51086
+    },
+    {
+      "codice": "TOS10000511",
+      "nome": "Lucca (Orto Botanico)",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "16.00",
+      "lat": 43.841821,
+      "lng": 10.511097
     },
     {
       "codice": "TOS03002643",
@@ -2091,15 +2091,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS11000106",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1637.00",
-      "lat": 44.197079,
-      "lng": 10.4867
-    },
-    {
       "codice": "TOS30355400",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2107,6 +2098,15 @@
       "quota": "1530.00",
       "lat": 44.210107,
       "lng": 10.48871
+    },
+    {
+      "codice": "TOS11000106",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1637.00",
+      "lat": 44.197079,
+      "lng": 10.4867
     },
     {
       "codice": "TOS03003200",
