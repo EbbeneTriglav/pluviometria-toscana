@@ -1,6 +1,6 @@
 {
-  "aggiornato": "2026-10-29T09:25:58.478230+00:00",
-  "totale": 402,
+  "aggiornato": "2026-10-29T16:28:25.929195+00:00",
+  "totale": 400,
   "stazioni": [
     {
       "codice": "TOS11000114",
@@ -37,15 +37,6 @@
       "quota": "950.00",
       "lat": 44.023266,
       "lng": 11.02527
-    },
-    {
-      "codice": "TOS10002580",
-      "nome": "Acquisti",
-      "comune": "Grosseto",
-      "provincia": "GR",
-      "quota": "5.00",
-      "lat": 42.846853,
-      "lng": 11.060116
     },
     {
       "codice": "TOS11000077",
@@ -2235,15 +2226,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS19000702",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "434.00",
-      "lat": 43.669029,
-      "lng": 12.042798
-    },
-    {
       "codice": "TOS11000040",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2251,6 +2233,15 @@
       "quota": "750.00",
       "lat": 43.673953,
       "lng": 12.101949
+    },
+    {
+      "codice": "TOS19000702",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "434.00",
+      "lat": 43.669029,
+      "lng": 12.042798
     },
     {
       "codice": "TOS01000544",
@@ -2262,15 +2253,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS07000046",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "157.00",
-      "lat": 42.593492,
-      "lng": 11.599649
-    },
-    {
       "codice": "TOS11000014",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2278,6 +2260,15 @@
       "quota": "300.00",
       "lat": 42.635098,
       "lng": 11.6543
+    },
+    {
+      "codice": "TOS07000046",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "157.00",
+      "lat": 42.593492,
+      "lng": 11.599649
     },
     {
       "codice": "TOS03001841",
@@ -3538,15 +3529,6 @@
       "quota": "502.00",
       "lat": 44.159344,
       "lng": 10.386128
-    },
-    {
-      "codice": "TOS10000200",
-      "nome": "Villacollemandina (Diga)",
-      "comune": "Villa Collemandina",
-      "provincia": "LU",
-      "quota": "498.00",
-      "lat": 44.159681,
-      "lng": 10.386719
     },
     {
       "codice": "TOS11000100",
