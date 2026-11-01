@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-01T15:30:45.388514+00:00",
+  "aggiornato": "2026-11-01T19:55:25.834711+00:00",
   "totale": 400,
   "stazioni": [
     {
@@ -2082,15 +2082,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS30355400",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1530.00",
-      "lat": 44.210107,
-      "lng": 10.48871
-    },
-    {
       "codice": "TOS11000106",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2098,6 +2089,15 @@
       "quota": "1637.00",
       "lat": 44.197079,
       "lng": 10.4867
+    },
+    {
+      "codice": "TOS30355400",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1530.00",
+      "lat": 44.210107,
+      "lng": 10.48871
     },
     {
       "codice": "TOS03003200",
@@ -2253,15 +2253,6 @@
       "lng": 10.412004
     },
     {
-      "codice": "TOS11000014",
-      "nome": "Pitigliano",
-      "comune": "Pitigliano",
-      "provincia": "GR",
-      "quota": "300.00",
-      "lat": 42.635098,
-      "lng": 11.6543
-    },
-    {
       "codice": "TOS07000046",
       "nome": "Pitigliano",
       "comune": "Pitigliano",
@@ -2269,6 +2260,15 @@
       "quota": "157.00",
       "lat": 42.593492,
       "lng": 11.599649
+    },
+    {
+      "codice": "TOS11000014",
+      "nome": "Pitigliano",
+      "comune": "Pitigliano",
+      "provincia": "GR",
+      "quota": "300.00",
+      "lat": 42.635098,
+      "lng": 11.6543
     },
     {
       "codice": "TOS03001841",
@@ -2577,15 +2577,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS10001970",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "18.00",
-      "lat": 43.456633,
-      "lng": 10.370241
-    },
-    {
       "codice": "TOS11000513",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2593,6 +2584,15 @@
       "quota": "244.00",
       "lat": 43.479562,
       "lng": 10.347686
+    },
+    {
+      "codice": "TOS10001970",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "18.00",
+      "lat": 43.456633,
+      "lng": 10.370241
     },
     {
       "codice": "TOS01001284",
@@ -2703,15 +2703,6 @@
       "lng": 11.505724
     },
     {
-      "codice": "TOS10002530",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "482.00",
-      "lat": 43.011206,
-      "lng": 11.167608
-    },
-    {
       "codice": "TOS03002531",
       "nome": "Roccastrada",
       "comune": "Roccastrada",
@@ -2719,6 +2710,15 @@
       "quota": "504.00",
       "lat": 43.016277,
       "lng": 11.165185
+    },
+    {
+      "codice": "TOS10002530",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "482.00",
+      "lat": 43.011206,
+      "lng": 11.167608
     },
     {
       "codice": "TOS11000015",
