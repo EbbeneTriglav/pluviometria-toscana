@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-01T01:33:56.411759+00:00",
+  "aggiornato": "2026-11-01T08:16:00.015318+00:00",
   "totale": 400,
   "stazioni": [
     {
@@ -1443,15 +1443,6 @@
       "lng": 10.299632
     },
     {
-      "codice": "TOS10000511",
-      "nome": "Lucca (Orto Botanico)",
-      "comune": "Lucca",
-      "provincia": "LU",
-      "quota": "16.00",
-      "lat": 43.841821,
-      "lng": 10.511097
-    },
-    {
       "codice": "TOS02000512",
       "nome": "Lucca (Orto Botanico)",
       "comune": "Lucca",
@@ -1459,6 +1450,15 @@
       "quota": "16.00",
       "lat": 43.841864,
       "lng": 10.51086
+    },
+    {
+      "codice": "TOS10000511",
+      "nome": "Lucca (Orto Botanico)",
+      "comune": "Lucca",
+      "provincia": "LU",
+      "quota": "16.00",
+      "lat": 43.841821,
+      "lng": 10.511097
     },
     {
       "codice": "TOS03002643",
@@ -2082,15 +2082,6 @@
       "lng": 10.301054
     },
     {
-      "codice": "TOS11000106",
-      "nome": "Passo Radici",
-      "comune": "Castiglione di Garfagnana",
-      "provincia": "LU",
-      "quota": "1637.00",
-      "lat": 44.197079,
-      "lng": 10.4867
-    },
-    {
       "codice": "TOS30355400",
       "nome": "Passo Radici",
       "comune": "Castiglione di Garfagnana",
@@ -2098,6 +2089,15 @@
       "quota": "1530.00",
       "lat": 44.210107,
       "lng": 10.48871
+    },
+    {
+      "codice": "TOS11000106",
+      "nome": "Passo Radici",
+      "comune": "Castiglione di Garfagnana",
+      "provincia": "LU",
+      "quota": "1637.00",
+      "lat": 44.197079,
+      "lng": 10.4867
     },
     {
       "codice": "TOS03003200",
@@ -2577,15 +2577,6 @@
       "lng": 10.927028
     },
     {
-      "codice": "TOS11000513",
-      "nome": "Quercianella",
-      "comune": "Livorno",
-      "provincia": "LI",
-      "quota": "244.00",
-      "lat": 43.479562,
-      "lng": 10.347686
-    },
-    {
       "codice": "TOS10001970",
       "nome": "Quercianella",
       "comune": "Livorno",
@@ -2593,6 +2584,15 @@
       "quota": "18.00",
       "lat": 43.456633,
       "lng": 10.370241
+    },
+    {
+      "codice": "TOS11000513",
+      "nome": "Quercianella",
+      "comune": "Livorno",
+      "provincia": "LI",
+      "quota": "244.00",
+      "lat": 43.479562,
+      "lng": 10.347686
     },
     {
       "codice": "TOS01001284",
@@ -2703,15 +2703,6 @@
       "lng": 11.505724
     },
     {
-      "codice": "TOS03002531",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "504.00",
-      "lat": 43.016277,
-      "lng": 11.165185
-    },
-    {
       "codice": "TOS10002530",
       "nome": "Roccastrada",
       "comune": "Roccastrada",
@@ -2719,6 +2710,15 @@
       "quota": "482.00",
       "lat": 43.011206,
       "lng": 11.167608
+    },
+    {
+      "codice": "TOS03002531",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "504.00",
+      "lat": 43.016277,
+      "lng": 11.165185
     },
     {
       "codice": "TOS11000015",
