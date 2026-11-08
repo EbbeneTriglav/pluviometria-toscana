@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-08T16:24:10.182847+00:00",
+  "aggiornato": "2026-11-08T20:49:29.974888+00:00",
   "totale": 400,
   "stazioni": [
     {
@@ -2703,15 +2703,6 @@
       "lng": 11.505724
     },
     {
-      "codice": "TOS10002530",
-      "nome": "Roccastrada",
-      "comune": "Roccastrada",
-      "provincia": "GR",
-      "quota": "482.00",
-      "lat": 43.011206,
-      "lng": 11.167608
-    },
-    {
       "codice": "TOS03002531",
       "nome": "Roccastrada",
       "comune": "Roccastrada",
@@ -2719,6 +2710,15 @@
       "quota": "504.00",
       "lat": 43.016277,
       "lng": 11.165185
+    },
+    {
+      "codice": "TOS10002530",
+      "nome": "Roccastrada",
+      "comune": "Roccastrada",
+      "provincia": "GR",
+      "quota": "482.00",
+      "lat": 43.011206,
+      "lng": 11.167608
     },
     {
       "codice": "TOS11000015",
