@@ -1,6 +1,6 @@
 {
-  "aggiornato": "2026-11-12T21:10:01.475709+00:00",
-  "totale": 400,
+  "aggiornato": "2026-11-13T02:11:44.953605+00:00",
+  "totale": 399,
   "stazioni": [
     {
       "codice": "TOS11000114",
@@ -2226,15 +2226,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS11000040",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "750.00",
-      "lat": 43.673953,
-      "lng": 12.101949
-    },
-    {
       "codice": "TOS19000702",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2242,6 +2233,15 @@
       "quota": "434.00",
       "lat": 43.669029,
       "lng": 12.042798
+    },
+    {
+      "codice": "TOS11000040",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "750.00",
+      "lat": 43.673953,
+      "lng": 12.101949
     },
     {
       "codice": "TOS01000544",
@@ -2557,15 +2557,6 @@
       "quota": "960.00",
       "lat": 44.008477,
       "lng": 10.804013
-    },
-    {
-      "codice": "TOS10000245",
-      "nome": "Puntato",
-      "comune": "Stazzema",
-      "provincia": "LU",
-      "quota": "970.00",
-      "lat": 44.05358,
-      "lng": 10.294909
     },
     {
       "codice": "TOS01005373",
