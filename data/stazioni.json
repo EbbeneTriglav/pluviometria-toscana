@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T05:05:24.855877+00:00",
+  "aggiornato": "2026-11-25T16:14:06.110951+00:00",
   "totale": 399,
   "stazioni": [
     {
@@ -133,7 +133,7 @@
       "nome": "Avenza",
       "comune": "Carrara",
       "provincia": "MS",
-      "quota": "15.00",
+      "quota": "11.32",
       "lat": 44.045158,
       "lng": 10.060126
     },
@@ -2226,15 +2226,6 @@
       "lng": 10.589408
     },
     {
-      "codice": "TOS19000702",
-      "nome": "Pieve S. Stefano",
-      "comune": "Pieve Santo Stefano",
-      "provincia": "AR",
-      "quota": "434.00",
-      "lat": 43.669029,
-      "lng": 12.042798
-    },
-    {
       "codice": "TOS11000040",
       "nome": "Pieve S. Stefano",
       "comune": "Pieve Santo Stefano",
@@ -2242,6 +2233,15 @@
       "quota": "750.00",
       "lat": 43.673953,
       "lng": 12.101949
+    },
+    {
+      "codice": "TOS19000702",
+      "nome": "Pieve S. Stefano",
+      "comune": "Pieve Santo Stefano",
+      "provincia": "AR",
+      "quota": "434.00",
+      "lat": 43.669029,
+      "lng": 12.042798
     },
     {
       "codice": "TOS01000544",
@@ -2455,7 +2455,7 @@
       "nome": "Pontelungo valle",
       "comune": "Pistoia",
       "provincia": "PT",
-      "quota": "65.68",
+      "quota": "68.40",
       "lat": 43.919806,
       "lng": 10.895925
     },
